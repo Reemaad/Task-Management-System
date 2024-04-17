@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<header class="header">
+    <div class="left">
+
+        <button class="user-button" (click)=toggleMenue()>
+
+            <i class="dropdown-icon fas fa-angle-down"></i>
+            <div class="user-info">
+                <span class="greeting">مرحبا</span>
+                <span class="username">سعد ناصر</span>
+            </div>
+            <i class="user-icon fa fa-user"></i>
+
+            <div *ngIf="showMenueItems" class="user-menue">
+                <div class="user-info">
+
+                    <p style="color: #612551; margin-bottom: 0px;">الاسم</p>
+                    <p style="color:#4F4F4F">سعد ناصر المطيري</p>
+                    <p style="color: #612551; margin-bottom: 0px;">الدور الوظيفي</p>
+                    <p style="color:#4F4F4F">مدير النظام</p>
+
+                   <span class="horizintal-line"></span>
+
+                    <button (click)="logout()" type="button" class="logout-button">
+                        <span style="color:#4F4F4F"> تسجيل الخروج</span>
+                        <span class="logout-icon fas fa-sign-out-alt fa-flip-horizontal"></span>
+                    </button>
+                    
+                </div>
+            </div>
+
+        </button>
+
+
+    </div>
+
+    <div class="right">
+        <span class="website-name">منصة إدارة المهام</span>
+        <img src="assets/Line02.png" alt="line" class="line">
+        <img src="assets/logo.png" alt="Logo" class="logo">
+    </div>
+</header>
