@@ -1,0 +1,35 @@
+<header class="header">
+
+        <button class="user-button" (click)=toggleMenue()>
+            <i class="dropdown-icon bi bi-chevron-compact-down"></i>
+            <div class="user-info-btn">
+                <span class="greeting">{{'GENERAL.GREETING' | translate}}</span>
+                <span class="username">سعد ناصر</span>
+            </div>
+            <i class="user-icon bi bi-person-circle"></i>
+
+            @if(showMenueItems){
+            <div class="user-menue">
+                <div class="user-info-menue">
+                    <span class="label-name">{{'USER.USERNAME'| translate}}</span>
+                    <span class="value-name">سعد ناصر المطيري</span>
+                    <span class="label-role">{{'USER.USER_ROLE'|translate}}</span>
+                    <span class="value-role">{{'USER.USER_INFO_ROLE'|translate}}</span>
+                </div>
+                <span class="horizontal-line"></span>
+                <button (click)="logout()" type="button" class="logout-button">
+                    <span> {{'GENERAL.LOGOUT'|translate}}</span>
+                    <i class="logout-icon bi-box-arrow-left"></i>
+                </button>
+            </div>
+            }
+
+        </button>
+
+    <div class="website-info">
+        <span class="website-name"> {{'GENERAL.WEBSITE_NAME'|translate}}</span>
+        <img src="assets/Line02.png" alt="line" class="line">
+        <img src="assets/logo.png" alt="Logo" class="logo">
+    </div>
+
+</header>

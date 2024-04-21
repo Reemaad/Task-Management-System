@@ -1,0 +1,13 @@
+{
+  "GENERAL": {
+    "GREETING": "مرحبا",
+    "LOGOUT": "تسجيل الخروج",
+    "WEBSITE_NAME": "منصة إدارة المهام"
+  },
+"USER":{
+  "USERNAME": "الاسم",
+  "USER_ROLE": "الدور الوظيفي",
+  "USER_INFO_ROLE": "مدير النظام"
+}
+
+}

@@ -2,110 +2,98 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
   background-color: #ffffff;
-}
-
-.left {
-  display: flex;
-  align-items: center;
 }
 
 .user-button {
   display: flex;
-  gap: 16px;
-  position: relative;
-  padding: 15px;
   align-items: center;
+  gap: 16px;
+  padding: 15px;
   background: none;
   border: none;
   border-right: 1px solid #F0F0F0;
-  cursor: pointer;
 }
 
-.user-info {
+.user-info-btn , .user-info-menue {
   display: flex;
   flex-direction: column;
-}
-
-.user-info p {
   text-align: right;
   font-size: 14px;
+} 
+
+.user-info-menue{
+  padding: 10px;
 }
 
-.horizintal-line{
+.label-role , 
+.label-name{
+  color:#612551; 
+}
+
+.value-name{
+  margin-bottom: 10px; 
+}
+
+.horizontal-line{
   height: 1px; 
   background-color: #ccc;
-  width: 100%;
-  margin-bottom: 5px;
 }
 
-
 .user-icon {
-  font-size: 25px;
-  margin-right: 10px;
-  border: 3px solid #612551;
-  border-radius: 50%;
-  padding: 5px;
+  font-size: 30px;
   color: #612551
 }
 
-.greeting , .username{
-  font-family: 'Almarai';
-}
-
 .greeting {
-  text-align: right;
   font-size: 12.12px;
-  font-weight: 400;
   color: #747474;
 }
 
 .username {
-  text-align: right;
   font-size: 13.76px;
-  font-weight: 400;
 }
 
 .dropdown-icon {
   font-size: 20px;
-  margin-right: 5em;
-  color: #612551
+  color: #612551;
+  margin-right: 100px;
 }
-
 
 .user-menue {
-  display: block;
+  display: flex;
   position: absolute;
+  flex-direction: column;
+  width: 250px;
   border-radius: 8px;
-  padding: 10px;
-  width: 270px;
-  box-shadow: 0px 0px 3.4px 0px #00000036;
+  box-shadow: 0px 0px 1px 0px #00000036;
   background-color: #ffffff;
-  margin-top: 16em;
+  margin-top: 15em;
 }
-
 
 .logout-button {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   background: none;
   border: none;
-  cursor: pointer;
-  justify-content: flex-end;
   gap: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  color:#4F4F4F;
+  font-size: 14px;
 }
-
+ 
 .logout-icon{
-  font-size:20px ;
+  font-size:25px ;
   color: #612551;
 }
 
-.right {
+.website-info {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-right: 0.5em;
+  margin-right:10px;
 }
 
 .line {
@@ -117,12 +105,11 @@
 .logo {
   max-height: 40px;
   max-width: 50px;
-  margin: 1em;
+  margin:15px;
 }
 
 .website-name {
   font-size: 18px;
   font-weight: 700;
-  line-height: 16.4px;
   color: #612551;
 }
