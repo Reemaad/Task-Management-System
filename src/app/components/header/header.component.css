@@ -15,34 +15,35 @@
   border-right: 1px solid #F0F0F0;
 }
 
-.user-info-btn , .user-info-menue {
+.user-info-btn,
+.user-info-menu {
   display: flex;
   flex-direction: column;
   text-align: right;
   font-size: 14px;
-} 
+}
 
-.user-info-menue{
+.user-info-menu {
   padding: 10px;
 }
 
-.label-role , 
-.label-name{
-  color:#612551; 
+.label-role,
+.label-name {
+  color: var(--primary-color);
 }
 
-.value-name{
-  margin-bottom: 10px; 
+.value-name {
+  margin-bottom: 10px;
 }
 
-.horizontal-line{
-  height: 1px; 
+.horizontal-line {
+  height: 1px;
   background-color: #ccc;
 }
 
 .user-icon {
   font-size: 30px;
-  color: #612551
+  color: var(--primary-color);
 }
 
 .greeting {
@@ -56,11 +57,11 @@
 
 .dropdown-icon {
   font-size: 20px;
-  color: #612551;
+  color: var(--primary-color);
   margin-right: 100px;
 }
 
-.user-menue {
+.user-menu {
   display: flex;
   position: absolute;
   flex-direction: column;
@@ -80,20 +81,20 @@
   gap: 10px;
   padding-right: 10px;
   padding-bottom: 5px;
-  color:#4F4F4F;
+  color: #4F4F4F;
   font-size: 14px;
 }
- 
-.logout-icon{
-  font-size:25px ;
-  color: #612551;
+
+.logout-icon {
+  font-size: 25px;
+  color: var(--primary-color);
 }
 
 .website-info {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-right:10px;
+  margin-right: 10px;
 }
 
 .line {
@@ -105,11 +106,11 @@
 .logo {
   max-height: 40px;
   max-width: 50px;
-  margin:15px;
+  margin: 15px;
 }
 
 .website-name {
   font-size: 18px;
   font-weight: 700;
-  color: #612551;
+  color: var(--primary-color);
 }
