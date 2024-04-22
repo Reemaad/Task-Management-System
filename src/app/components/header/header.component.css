@@ -1,0 +1,116 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.user-button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 15px;
+  background: none;
+  border: none;
+  border-right: 1px solid #F0F0F0;
+}
+
+.user-info-btn,
+.user-info-menu {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  font-size: 14px;
+}
+
+.user-info-menu {
+  padding: 10px;
+}
+
+.label-role,
+.label-name {
+  color: var(--primary-color);
+}
+
+.value-name {
+  margin-bottom: 10px;
+}
+
+.horizontal-line {
+  height: 1px;
+  background-color: #ccc;
+}
+
+.user-icon {
+  font-size: 30px;
+  color: var(--primary-color);
+}
+
+.greeting {
+  font-size: 12.12px;
+  color: #747474;
+}
+
+.username {
+  font-size: 13.76px;
+}
+
+.dropdown-icon {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-right: 100px;
+}
+
+.user-menu {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 1px 0px #00000036;
+  background-color: #ffffff;
+  margin-top: 15em;
+}
+
+.logout-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: none;
+  border: none;
+  gap: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  color: #4F4F4F;
+  font-size: 14px;
+}
+
+.logout-icon {
+  font-size: 25px;
+  color: var(--primary-color);
+}
+
+.website-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 10px;
+}
+
+.line {
+  max-height: 65px;
+  max-width: 50px;
+  mix-blend-mode: Luminosity;
+}
+
+.logo {
+  max-height: 40px;
+  max-width: 50px;
+  margin: 15px;
+}
+
+.website-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+}

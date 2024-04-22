@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Cairo';
+    src: url('/assets/fonts/Cairo-VariableFont_slnt,wght.ttf') format('truetype');
+}
+
+:root {
+    --primary-color: #612551;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #F0F0F0;
+}
