@@ -1,0 +1,28 @@
+.footer {
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: fit-content;
+    background-color: #D4D4D4;
+    color: #535353;
+    text-align: center;
+    border: 1px solid #C9C9C9;
+}
+
+
+.footer-copyright {
+    color: #535353;
+    font-weight: 600px;
+    font-size: 20px;
+    line-height: 37.48px;
+    font-style: Cairo;
+}
+
+
+.footer-text {
+    font-family: Cairo;
+    font-size: 20px;
+    font-weight: 600px;
+    color: #535353;
+    line-height: 37.48px;
+}
