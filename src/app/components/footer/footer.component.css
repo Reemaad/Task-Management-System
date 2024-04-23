@@ -1,23 +1,26 @@
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    height: fit-content;
+    height: 45px;
     color: #535353;
     text-align: center;
     border: 1px solid #C9C9C9;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 
 .footer-copyright {
     font-weight: 600px;
-    font-size: 20px;
+    font-size: 16;
     line-height: 37.48px;
 }
 
 
 .footer-text {
-    font-size: 20px;
     font-weight: 600px;
+    font-size: 16;
     line-height: 37.48px;
 }
