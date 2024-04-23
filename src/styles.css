@@ -8,11 +8,10 @@
 }
 
 body {
-    font-family: 'Cairo', sans-serif;
     background-color: #F0F0F0;
     margin: 0;
 }
 
-span {
-    font-family: 'Cairo';
+* {
+    font-family: 'Cairo', sans-serif;
 }
