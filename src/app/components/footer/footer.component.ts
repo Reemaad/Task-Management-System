@@ -8,10 +8,8 @@ import { TranslateModule } from "@ngx-translate/core";
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
   currentYear: number = new Date().getFullYear();
-  ngOnInit(): void {
 
-  }
 }
