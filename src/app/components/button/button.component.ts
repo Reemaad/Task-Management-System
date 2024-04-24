@@ -7,8 +7,8 @@ import { EventEmitter } from "@angular/core";
   selector: "custom-button",
   standalone: true,
   imports: [CommonModule],
-  templateUrl: "./buttons.component.html",
-  styleUrl: "./buttons.component.css",
+  templateUrl: "./button.component.html",
+  styleUrl: "./button.component.css",
 })
 export class ButtonComponent {
   @Input() type: ButtonType = ButtonType.PRIMARY;
@@ -16,6 +16,6 @@ export class ButtonComponent {
   ButtonType = ButtonType;
 
   emitEvent() {
-    this.onClick.emit("test");
+    this.onClick.emit();
   }
 }
