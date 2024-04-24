@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 import { TranslateModule } from "@ngx-translate/core";
 
 @Component({
-  selector: "app-header",
+  selector: "custom-header",
   standalone: true,
   imports: [CommonModule, TranslateModule],
   providers: [],
