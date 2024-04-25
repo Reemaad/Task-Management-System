@@ -1,29 +1,39 @@
 <header class="header">
 
-    <button type="button" class="user-button" (click)=toggleMenu()>
-        <i class="dropdown-icon bi bi-chevron-compact-down"></i>
-        <div class="user-info-btn">
-            <span class="greeting">{{'GENERAL.GREETING' | translate}}</span>
-            <span>سعد ناصر</span>
-        </div>
-        <i class="user-icon bi bi-person-circle"></i>
+    <div class="user-button-container">
+
+        <button type="button" class="user-button" (click)=toggleMenu()>
+            <i class="dropdown-icon bi bi-chevron-compact-down"></i>
+            <div class="user-info-btn">
+                <span class="greeting">{{'GENERAL.GREETING' | translate}}</span>
+                <span>سعد ناصر</span>
+            </div>
+            <i class="user-icon bi bi-person-circle"></i>
+        </button>
+
 
         @if(showMenuItems){
-        <div class="user-menu">
-            <div class="user-info-menu">
-                <span class="label-name">{{'USER.USERNAME'| translate}}</span>
-                <span class="value-name">سعد ناصر المطيري</span>
-                <span class="label-role">{{'USER.USER_ROLE'|translate}}</span>
-                <span class="value-role">{{'USER.USER_INFO_ROLE'|translate}}</span>
+        <div class="user-menu-container">
+            <div class="user-menu">
+
+                <div class="user-info-menu">
+                    <span class="label-name">{{'USER.USERNAME'| translate}}</span>
+                    <span class="value-name">سعد ناصر المطيري</span>
+                    <span class="label-role">{{'USER.USER_ROLE'|translate}}</span>
+                    <span class="value-role">{{'USER.USER_INFO_ROLE'|translate}}</span>
+                </div>
+
+                <span class="horizontal-line"></span>
+
+                <button type="button" class="logout-button" (click)="logout()">
+                    <span> {{'GENERAL.LOGOUT'|translate}}</span>
+                    <i class="logout-icon bi-box-arrow-left"></i>
+                </button>
             </div>
-            <span class="horizontal-line"></span>
-            <button type="button" class="logout-button" (click)="logout()">
-                <span> {{'GENERAL.LOGOUT'|translate}}</span>
-                <i class="logout-icon bi-box-arrow-left"></i>
-            </button>
         </div>
         }
-    </button>
+
+    </div>
 
     <div class="website-info">
         <span class="website-name"> {{'GENERAL.WEBSITE_NAME'|translate}}</span>
