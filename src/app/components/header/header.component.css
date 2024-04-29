@@ -5,6 +5,16 @@
   background-color: #ffffff;
 }
 
+.user-button-container {
+  flex-direction: column;
+  position: relative;
+}
+
+.user-menu-container {
+  position: absolute;
+  width: 100%;
+}
+
 .user-button {
   display: flex;
   align-items: center;
@@ -62,14 +72,12 @@
 
 .user-menu {
   display: flex;
-  position: absolute;
   flex-direction: column;
-  width: 250px;
-  height: auto;
   border-radius: 8px;
   box-shadow: 0 0 1px 0 #00000036;
   background-color: #ffffff;
-  margin-top: 255px;
+  margin-top: 5px;
+  margin-left: 10px;
 }
 
 .logout-button {
