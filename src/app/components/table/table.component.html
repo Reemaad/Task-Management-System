@@ -1,0 +1,27 @@
+<table class="table">
+    <thead class="head">
+        @for (TABLE of headArray; track TABLE){
+        <tr>
+            <th>{{ TABLE.Task_Number | translate}}</th>
+            <th>{{ TABLE.Task_Status | translate}}</th>
+            <th>{{ TABLE.Task_Description | translate}}</th>
+            <th> </th>
+        </tr>}
+    </thead>
+    <tbody>
+        @for (item of items; track item.id){
+        <tr [class.grey-row]="item.id % 2 === 0" [class.white-row]="item.id % 2!== 0">
+            <td>{{ item.id }}</td>
+            <td [ngClass]="getStatusClass(item.status)">{{ item.status }}</td>
+            <td>{{ item.des }}</td>
+            <td>
+                <button (click)="editItem(item.id)">
+                    <img src="assets/images/png/edit.png" alt="Edit" class="options">
+                </button>
+                <button (click)="deleteItem(item.id)">
+                    <img src="assets/images/png/delete.png" alt="Delete" class="options">
+                </button>
+            </td>
+        </tr>}
+    </tbody>
+</table>
