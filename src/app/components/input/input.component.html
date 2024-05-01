@@ -1,0 +1,5 @@
+<form>
+    <span>{{label}}</span>
+    <input [type]="type" [id]="type" [formControl]="formControl" />
+    <custom-error-message [formControl]="formControl" [type]="type"></custom-error-message>
+</form>

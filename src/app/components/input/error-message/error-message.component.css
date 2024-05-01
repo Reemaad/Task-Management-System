@@ -1,0 +1,10 @@
+span {
+    color: #D71E13;
+    font-size: 14px;
+    margin-left: 2px;
+    text-align: right;
+}
+
+.error-message {
+    direction: rtl;
+}
