@@ -8,6 +8,8 @@
     margin-right: auto;
     margin-top: 1%;
     border-collapse: collapse;
+    color: #6C6C6C;
+    font-size: 14px;
 }
 
 .head {
@@ -26,8 +28,8 @@
 }
 
 .options {
-    max-width: 28px;
-    max-height: 28px;
+    max-width: 16px;
+    max-height: 16px;
 }
 
 .status-back {
@@ -37,16 +39,16 @@
 }
 
 .status-green {
-    background-color: rgba(0, 201, 56, 0.13);
+    background-color: #00c93821;
     color: #005919;
 }
 
 .status-yellow {
-    background-color: rgba(255, 237, 174, 0.46);
+    background-color: #ffedae75;
     color: #A48854;
 }
 
 .status-grey {
-    background-color: rgba(111, 111, 111, 0.25);
+    background-color: #6f6f6f40;
     color: #4A4A4A;
 }
