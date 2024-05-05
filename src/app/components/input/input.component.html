@@ -1,5 +1,22 @@
-<form>
+<form [formGroup]="formGroup1.form">
+
     <span>{{label}}</span>
-    <input [type]="type" [id]="type" [formControl]="formControl" />
-    <custom-error-message [formControl]="formControl" [type]="type"></custom-error-message>
+
+    @switch(type){
+
+    @case ("input") {
+    <input type="text" [formControlName]="this.controlName" />
+    }
+
+    @case ("textarea") {
+    <textarea type="text" [formControlName]="controlName"></textarea>
+    }
+    }
+
+    @for (errorMessage of errorMessages ; track errorMessage.type ){
+    @if(getErrorByType(errorMessage.type)){
+    <custom-error-message [message]="errorMessage.message"></custom-error-message>
+    }
+    }
+
 </form>

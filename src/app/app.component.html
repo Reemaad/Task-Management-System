@@ -1,2 +1,21 @@
 <custom-header></custom-header>
 <custom-footer></custom-footer>
+
+
+<form #form="ngForm" [formGroup]="loginForm">
+    <custom-input 
+    [formGroup1]="loginForm" 
+    [errorMessages]=errorMessages 
+    [label]="'Password'" 
+    [type]="'input'"
+    [controlName]="'password'">
+</custom-input>
+
+    <custom-input 
+    [formGroup1]="loginForm"  
+    [errorMessages]=errorMessages 
+    [label]="'Username'" 
+    [type]="'input'" 
+    [controlName]="'username'">
+    </custom-input>
+</form>
