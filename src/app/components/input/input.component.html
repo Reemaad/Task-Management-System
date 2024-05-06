@@ -1,22 +1,30 @@
-<form [formGroup]="formGroup1.form">
+<form [formGroup]="formGroup1.form" #form="ngForm">
 
     <span>{{label}}</span>
 
     @switch(type){
+      @case (InputType.input) {
+      <input
+        type="text"
+        id="input"
+        [formControlName]="controlName" />
+      }
 
-    @case ("input") {
-    <input type="text" [formControlName]="this.controlName" />
+      @case (InputType.textarea) {
+      <textarea
+        type="text"
+        id="textarea"
+        [formControlName]="controlName">
+      </textarea>
+      }
     }
 
-    @case ("textarea") {
-    <textarea type="text" [formControlName]="controlName"></textarea>
+    @for (errorMessage of errorMessages; track errorMessage) {
+      @if(getErrorByType(errorMessage.validator)){
+      <custom-error-message 
+      [message]="errorMessage.message">
+      </custom-error-message>
+      }
     }
-    }
-
-    @for (errorMessage of errorMessages ; track errorMessage.type ){
-    @if(getErrorByType(errorMessage.type)){
-    <custom-error-message [message]="errorMessage.message"></custom-error-message>
-    }
-    }
-
+  
 </form>

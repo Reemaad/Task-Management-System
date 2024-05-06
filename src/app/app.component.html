@@ -3,19 +3,23 @@
 
 
 <form #form="ngForm" [formGroup]="loginForm">
-    <custom-input 
-    [formGroup1]="loginForm" 
-    [errorMessages]=errorMessages 
-    [label]="'Password'" 
-    [type]="'input'"
-    [controlName]="'password'">
-</custom-input>
 
+    <div class="input">
     <custom-input 
-    [formGroup1]="loginForm"  
-    [errorMessages]=errorMessages 
-    [label]="'Username'" 
+    [formGroup1]="form"  
+    [errorMessages]="errorMessages['username']"
+    [label]="'LOGIN.USERNAME'|translate" 
     [type]="'input'" 
     [controlName]="'username'">
+    </custom-input>  
+
+    <custom-input 
+    [formGroup1]="form" 
+    [errorMessages]="errorMessages['password']"
+    [label]="'LOGIN.PASSWORD'|translate" 
+    [type]="'input'"
+    [controlName]="'password'">
     </custom-input>
+   </div>
+   
 </form>

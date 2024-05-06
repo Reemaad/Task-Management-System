@@ -1,11 +1,11 @@
 import { InputValidator } from "../enums/input-validator";
 
 export class ErrorMessage {
-  type: InputValidator;
+  validator: InputValidator;
   message: string;
 
-  constructor(type: InputValidator, message: string) {
+  constructor(validator: InputValidator, message: string) {
+    this.validator = validator;
     this.message = message;
-    this.type = type;
   }
 }

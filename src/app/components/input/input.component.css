@@ -1,7 +1,8 @@
 form {
     display: flex;
     flex-direction: column;
-    text-align: right;
+    gap: 5px;
+    direction: rtl;
 }
 
 input {
@@ -9,5 +10,13 @@ input {
     border: 1px solid #C0C0C0;
     text-align: right;
     width: 100%;
-    height: 100%;
+    height: 40px;
+}
+
+textarea {
+    border-radius: 11px;
+    border: 1px solid #C0C0C0;
+    text-align: right;
+    width: 100%;
+    height: 40px;
 }

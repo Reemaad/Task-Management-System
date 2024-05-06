@@ -1,4 +1,4 @@
 export enum InputValidator {
-  pattern ,
-  required,
+  pattern='pattern' ,
+  required='required',
 }

@@ -11,6 +11,7 @@ import {
 import { InputComponent } from "./components/input/input.component";
 import { InputValidator } from "./components/enums/input-validator";
 import { ErrorMessage } from "./components/models/error-message.model";
+import { TranslateModule } from "@ngx-translate/core";
 
 @Component({
   selector: "app-root",
@@ -21,6 +22,7 @@ import { ErrorMessage } from "./components/models/error-message.model";
     FooterComponent,
     InputComponent,
     ReactiveFormsModule,
+    TranslateModule,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
@@ -42,9 +44,26 @@ export class AppComponent implements OnInit {
     });
   }
 
-  errorMessages: ErrorMessage[] = [
-    new ErrorMessage(InputValidator.required, "ERROR_MESSAGES.REQUIRED"),
-    new ErrorMessage(InputValidator.pattern, "ERROR_MESSAGES.PATTERN_PASSWORD"),
-    new ErrorMessage(InputValidator.pattern, "ERROR_MESSAGES.PATTERN_USERNAME"),
-  ];
+  errorMessages: { [type: string]: ErrorMessage[] } = {
+    username: [
+      {
+        validator: InputValidator.required,
+        message: "ERROR_MESSAGES.REQUIRED",
+      },
+      {
+        validator: InputValidator.pattern,
+        message: "ERROR_MESSAGES.PATTERN_USERNAME",
+      },
+    ],
+    password: [
+      {
+        validator: InputValidator.required,
+        message: "ERROR_MESSAGES.REQUIRED",
+      },
+      {
+        validator: InputValidator.pattern,
+        message: "ERROR_MESSAGES.PATTERN_PASSWORD",
+      },
+    ],
+  };
 }
