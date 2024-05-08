@@ -15,7 +15,7 @@
         @switch (column.customType) {
           @case(CustomType.icon){
             <td>
-            <i class={{column.customConent}} (click)="handleIconClick($index, data)" [style.color]="column.iconColor ? column.iconColor : ''"></i>
+            <i class="{{column.customConent}} icon" (click)="handleIconClick($index, data)" [style.color]="column.iconColor"></i>
             </td>
           }
     

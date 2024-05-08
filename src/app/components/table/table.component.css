@@ -31,8 +31,12 @@
 }
 
 .table-image {
-  max-width: 150px; 
-  max-height: 100px; 
+  max-width: 130px; 
+  max-height: 80px; 
   display: block;
   margin: 0 auto;
+}
+
+.icon{
+  font-size: 19px;
 }
