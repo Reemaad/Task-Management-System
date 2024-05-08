@@ -45,15 +45,15 @@ export class AppComponent<T> {
     }
   ];
 
-  handleIconClick(column: Column<any>, data: TableData): void {
-    if (column.customConent === 'bi bi-trash') {
+  handleIconClick(columnNo: number, data: TableData): void {
+    if (columnNo === 4) {
       this.deleteItem(data.id);
-    } else if (column.customConent === 'bi bi-pencil-square') {
+    } else if (columnNo === 3) {
       this.editItem(data.id);
     }
   }
-  editItem(index: number): void {
-    console.log('Edit item:', index);
+  editItem(id: number): void {
+    console.log('Edit item:', id);
     // editItem(id: number, newData: Partial<TableData>): void {
     //   // Find the index of the item with the specified id in the tableData array
     //   const index = this.tableData.findIndex(item => item.id === id);

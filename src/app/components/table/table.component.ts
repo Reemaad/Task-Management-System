@@ -26,7 +26,7 @@ export class TableComponent<T extends TableData> implements OnInit {
 
   }
 
-  handleIconClick(column: Column<any>, data: TableData): void {
-    this.contact.emit({ column, data });
+  handleIconClick(columnNo: number, data: TableData): void {
+    this.contact.emit({ columnNo, data });
   }
 }
