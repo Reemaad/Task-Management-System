@@ -1,54 +1,38 @@
 .table {
-    direction: rtl;
-    align-items: center;
-    width: 95%;
-    text-align: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1%;
-    border-collapse: collapse;
-    color: #6C6C6C;
-    font-size: 14px;
+  direction: rtl;
+  align-items: center;
+  width: 95%;
+  text-align: center;
+  margin: 20px auto;
+  border-collapse: collapse;
+  color: #6C6C6C;
+  font-size: 14px;
 }
 
 .head {
-    background-color: var(--primary-color);
-    color: #F0F0F0;
-    font-size: 16px;
-    font-weight: 600;
+  padding: 8px;
+  background-color: var(--primary-color);
+  color: #F0F0F0;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.grey-row {
-    background: #F7F7F7;
+.row:nth-child(even) {
+  background: #F7F7F7;
 }
 
-.white-row {
-    background-color: #FFFFFF;
+.row:nth-child(odd) {
+  background-color: #FFFFFF;
 }
 
-.options {
-    max-width: 16px;
-    max-height: 16px;
+.table td {
+  vertical-align: middle;
+  padding: 8px;
 }
 
-.status-back {
-    display: inline-block;
-    width: 150px;
-    border-radius: 33px;
-}
-
-.status-green {
-    background-color: #00c93821;
-    color: #005919;
-}
-
-.status-yellow {
-    background-color: #ffedae75;
-    color: #A48854;
-}
-
-.status-grey {
-    background-color: #6f6f6f40;
-    color: #4A4A4A;
+.table-image {
+  max-width: 150px; 
+  max-height: 100px; 
+  display: block;
+  margin: 0 auto;
 }
