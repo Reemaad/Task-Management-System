@@ -1,4 +1,5 @@
-export enum InputType{
-    textarea="textarea" ,
-    input="input",
-  }
+export enum InputType {
+  textarea,
+  input,
+  password,
+}

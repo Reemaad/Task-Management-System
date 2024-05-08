@@ -1,8 +1,7 @@
-form {
+div {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    direction: rtl;
 }
 
 input {
@@ -19,4 +18,8 @@ textarea {
     text-align: right;
     width: 100%;
     height: 40px;
+}
+
+.error-message {
+    margin-right: 6px;
 }

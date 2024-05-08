@@ -15,7 +15,7 @@ import { InputType } from "../enums/input-type";
   styleUrl: "./input.component.css",
 })
 export class InputComponent {
-  @Input({ required: true }) formGroup1!: FormGroupDirective;
+  @Input({ required: true }) generalFormGroup!: FormGroupDirective;
   @Input() controlName!: string;
   @Input() errorMessages!: ErrorMessage[];
   @Input() label = "";
@@ -23,16 +23,13 @@ export class InputComponent {
   InputType = InputType;
 
   getErrorByType(validator: InputValidator): boolean {
-    const control = this.formGroup1.form.get(this.controlName);
-    if (
+    const control = this.generalFormGroup.form.get(this.controlName);
+    return (
       control &&
       control?.errors &&
       control?.touched &&
       control?.dirty &&
-      control?.errors?.[validator]
-    ) {
-      return true;
-    }
-    return false;
+      control?.errors?.[InputValidator[validator]]
+    );
   }
 }

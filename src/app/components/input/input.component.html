@@ -1,30 +1,32 @@
-<form [formGroup]="formGroup1.form" #form="ngForm">
+<div [formGroup]="generalFormGroup.form">
 
-    <span>{{label}}</span>
+  <span>{{label}}</span>
 
-    @switch(type){
-      @case (InputType.input) {
-      <input
-        type="text"
-        id="input"
-        [formControlName]="controlName" />
-      }
-
+  @switch(type){
       @case (InputType.textarea) {
-      <textarea
-        type="text"
-        id="textarea"
-        [formControlName]="controlName">
-      </textarea>
+        <textarea
+          type="text"
+          id="textarea"
+          [formControlName]="controlName">
+        </textarea>
       }
-    }
 
-    @for (errorMessage of errorMessages; track errorMessage) {
-      @if(getErrorByType(errorMessage.validator)){
-      <custom-error-message 
-      [message]="errorMessage.message">
-      </custom-error-message>
+      @default {
+        <input
+          [type]="type === InputType.password? InputType [InputType.password]: InputType [InputType.input]"
+          id="input"
+          [formControlName]="controlName"
+        />
       }
+  }
+
+  @for (errorMessage of errorMessages; track errorMessage) {
+    @if(getErrorByType(errorMessage.validator)){
+    <error-message
+      class="error-message"
+      [message]="errorMessage.message">
+    </error-message>
     }
-  
-</form>
+  }
+
+</div>

@@ -2,7 +2,7 @@ import { Component, Input } from "@angular/core";
 import { TranslateModule } from "@ngx-translate/core";
 
 @Component({
-  selector: "custom-error-message",
+  selector: "error-message",
   standalone: true,
   imports: [TranslateModule],
   templateUrl: "./error-message.component.html",

@@ -5,21 +5,21 @@
 <form #form="ngForm" [formGroup]="loginForm">
 
     <div class="input">
-    <custom-input 
-    [formGroup1]="form"  
-    [errorMessages]="errorMessages['username']"
-    [label]="'LOGIN.USERNAME'|translate" 
-    [type]="'input'" 
-    [controlName]="'username'">
-    </custom-input>  
+        <custom-input 
+        [generalFormGroup]="form"  
+        [errorMessages]="errorMessages['username']"
+        [label]="'LOGIN.USERNAME'|translate" 
+        [type]="InputType.input"
+        [controlName]="'username'">
+        </custom-input>  
 
-    <custom-input 
-    [formGroup1]="form" 
-    [errorMessages]="errorMessages['password']"
-    [label]="'LOGIN.PASSWORD'|translate" 
-    [type]="'input'"
-    [controlName]="'password'">
-    </custom-input>
-   </div>
-   
+        <custom-input 
+        [generalFormGroup]="form" 
+        [errorMessages]="errorMessages['password']"
+        [label]="'LOGIN.PASSWORD'|translate" 
+        [type]="InputType.password"
+        [controlName]="'password'">
+        </custom-input>
+    </div>
+
 </form>

@@ -4,4 +4,5 @@ div {
     gap: 15px;
     width: 427px;
     margin-left: 50px;
+    direction: rtl;
 }

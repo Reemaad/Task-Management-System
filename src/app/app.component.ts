@@ -12,6 +12,7 @@ import { InputComponent } from "./components/input/input.component";
 import { InputValidator } from "./components/enums/input-validator";
 import { ErrorMessage } from "./components/models/error-message.model";
 import { TranslateModule } from "@ngx-translate/core";
+import { InputType } from "./components/enums/input-type";
 
 @Component({
   selector: "app-root",
@@ -30,6 +31,7 @@ import { TranslateModule } from "@ngx-translate/core";
 export class AppComponent implements OnInit {
   title = "Task-Management-System";
   loginForm!: FormGroup;
+  InputType = InputType;
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -48,21 +50,21 @@ export class AppComponent implements OnInit {
     username: [
       {
         validator: InputValidator.required,
-        message: "ERROR_MESSAGES.REQUIRED",
+        message: "ERROR_MESSAGE.REQUIRED",
       },
       {
         validator: InputValidator.pattern,
-        message: "ERROR_MESSAGES.PATTERN_USERNAME",
+        message: "ERROR_MESSAGE.PATTERN_USERNAME",
       },
     ],
     password: [
       {
         validator: InputValidator.required,
-        message: "ERROR_MESSAGES.REQUIRED",
+        message: "ERROR_MESSAGE.REQUIRED",
       },
       {
         validator: InputValidator.pattern,
-        message: "ERROR_MESSAGES.PATTERN_PASSWORD",
+        message: "ERROR_MESSAGE.PATTERN_PASSWORD",
       },
     ],
   };

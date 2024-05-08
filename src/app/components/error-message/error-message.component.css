@@ -1,9 +1,5 @@
 .error-message {
     display: flex;
-    direction: rtl;
-    margin-right: 7px;
-    gap: 5px;
+    gap: 6px;
     color: #D71E13;
-    font-size: 14px;
-    text-align: right;
 }
