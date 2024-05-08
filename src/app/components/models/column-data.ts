@@ -1,9 +1,9 @@
 import { CustomType } from "../enums/custom-type";
 
-export interface Column <T>{
+export interface Column<T> {
     label: string;
     property: keyof T;
-    showCustom?:boolean;
+    showCustom?: boolean;
     customType?: CustomType;
     customConent?: string;
     action?: () => void;

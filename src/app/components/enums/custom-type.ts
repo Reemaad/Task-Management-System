@@ -1,4 +1,4 @@
-export enum CustomType{
+export enum CustomType {
     icon,
     image,
 }

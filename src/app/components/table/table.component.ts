@@ -13,9 +13,9 @@ import { TableData } from '../models/table-data';
 })
 export class TableComponent<T extends TableData> implements OnInit {
   @Input() tableData!: T[];
-  @Input({ required: true }) columns: Column <T>[] = [];
+  @Input({ required: true }) columns: Column<T>[] = [];
   @Output() contact = new EventEmitter<any>();
-  String= String;
+  String = String;
   CustomType = CustomType;
 
   constructor(private translate: TranslateService) {
