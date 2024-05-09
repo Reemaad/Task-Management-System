@@ -4,8 +4,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TableComponent } from './table.component';
 
 describe('TableComponent', () => {
-  let component: TableComponent;
-  let fixture: ComponentFixture<TableComponent>;
+  let component: TableComponent<any>;
+  let fixture: ComponentFixture<TableComponent<any>>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({

@@ -1,9 +1,7 @@
 .table {
   direction: rtl;
   align-items: center;
-  width: 95%;
   text-align: center;
-  margin: 20px auto;
   border-collapse: collapse;
   color: #6C6C6C;
   font-size: 14px;
@@ -39,4 +37,5 @@
 
 .icon {
   font-size: 19px;
+  cursor: pointer;
 }

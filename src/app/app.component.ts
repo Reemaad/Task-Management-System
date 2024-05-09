@@ -19,10 +19,10 @@ export class AppComponent<T> {
   title = "Task-Management-System";
   columns: Column<any>[] = [
     { label: "id", property: "id" },
-    { label: "status", property: 'status', showCustom: true, customType: CustomType.image },
+    { label: "status", property: 'status', showCustom: true, customType: CustomType.IMAGE },
     { label: "description", property: 'description' },
-    { label: "", property: "id", showCustom: true, customType: CustomType.icon, customConent: "bi bi-pencil-square", iconColor: 'var(--primary-color)' },
-    { label: "", property: "id", showCustom: true, customType: CustomType.icon, customConent: "bi bi-trash", iconColor: 'red' }
+    { label: "", property: "id", showCustom: true, customType: CustomType.ICON, customContent: "bi bi-pencil-square", iconColor: 'var(--primary-color)' },
+    { label: "", property: "id", showCustom: true, customType: CustomType.ICON, customContent: "bi bi-trash", iconColor: 'red' }
   ];
 
   tableData: TableData[] = [
@@ -45,24 +45,17 @@ export class AppComponent<T> {
     }
   ];
 
-  handleIconClick(columnNo: number, data: TableData): void {
+  handleIconClick(IDs: number[]): void {
+    const columnNo= IDs[0];
+    const dataId = IDs[1];
     if (columnNo === 4) {
-      this.deleteItem(data.id);
+      this.deleteItem(dataId);
     } else if (columnNo === 3) {
-      this.editItem(data.id);
+      this.editItem(dataId);
     }
   }
   editItem(id: number): void {
     console.log('Edit item:', id);
-    // editItem(id: number, newData: Partial<TableData>): void {
-    //   // Find the index of the item with the specified id in the tableData array
-    //   const index = this.tableData.findIndex(item => item.id === id);
-
-    //   // If the item exists, update its properties with the new data
-    //   if (index !== -1) {
-    //     this.tableData[index] = { ...this.tableData[index], ...newData };
-    //   }
-    // }
   }
   deleteItem(id: number): void {
     const index = this.tableData.findIndex(item => item.id === id);

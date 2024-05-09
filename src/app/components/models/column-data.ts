@@ -5,7 +5,7 @@ export interface Column<T> {
     property: keyof T;
     showCustom?: boolean;
     customType?: CustomType;
-    customConent?: string;
+    customContent?: string;
     action?: () => void;
     iconColor?: string;
 }

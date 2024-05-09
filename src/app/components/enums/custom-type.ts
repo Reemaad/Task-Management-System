@@ -1,4 +1,4 @@
 export enum CustomType {
-    icon,
-    image,
+    ICON,
+    IMAGE,
 }

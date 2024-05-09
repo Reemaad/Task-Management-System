@@ -13,15 +13,15 @@
 
       @if(column.showCustom){
         @switch (column.customType) {
-          @case(CustomType.icon){
+          @case(CustomType.ICON){
             <td>
-            <i class="{{column.customConent}} icon" (click)="handleIconClick($index, data)" [style.color]="column.iconColor"></i>
+            <i class="{{column.customContent}} icon" (click)="handleIconClick($index, data.id)" [style.color]="column.iconColor"></i>
             </td>
           }
     
-          @case(CustomType.image){
+          @case(CustomType.IMAGE){
             <td>
-              <img [src]="data[column.property]" class="table-image">
+              <img [src]="data[column.property]" class="table-image" alt="{{column.property}}">
             </td>
           }
     }

@@ -11,10 +11,10 @@ import { TableData } from '../models/table-data';
   standalone: true,
   imports: [TranslateModule]
 })
-export class TableComponent<T extends TableData> implements OnInit {
+export class TableComponent<T extends TableData> {
   @Input() tableData!: T[];
   @Input({ required: true }) columns: Column<T>[] = [];
-  @Output() contact = new EventEmitter<any>();
+  @Output() action = new EventEmitter<number[]>();
   String = String;
   CustomType = CustomType;
 
@@ -22,11 +22,7 @@ export class TableComponent<T extends TableData> implements OnInit {
     this.translate.setDefaultLang('ar');
   }
 
-  ngOnInit(): void {
-
-  }
-
-  handleIconClick(columnNo: number, data: TableData): void {
-    this.contact.emit({ columnNo, data });
+  handleIconClick(columnNo: number, dataId: number): void {
+    this.action.emit([ columnNo, dataId]);
   }
 }
