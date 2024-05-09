@@ -1,27 +1,2 @@
 <custom-header></custom-header>
 <custom-footer></custom-footer>
-
-
-<form #form="ngForm" [formGroup]="loginForm">
-
-    <div class="input">
-        <custom-input 
-        [generalFormGroup]="form"  
-        [errorMessages]="errorMessages['username']"
-        [label]="'LOGIN.USERNAME'" 
-        [type]="InputType.text"
-        [controlName]="'username'"
-        [id]="'username'">
-        </custom-input>  
-
-        <custom-input 
-        [generalFormGroup]="form" 
-        [errorMessages]="errorMessages['password']"
-        [label]="'LOGIN.PASSWORD'" 
-        [type]="InputType.password"
-        [controlName]="'password'"
-        [id]="'password'">
-        </custom-input>
-    </div>
-
-</form>

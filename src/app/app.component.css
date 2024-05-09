@@ -1,8 +1,0 @@
-div {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 427px;
-    margin-left: 50px;
-    direction: rtl;
-}
