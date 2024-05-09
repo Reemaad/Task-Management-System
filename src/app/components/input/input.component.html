@@ -1,21 +1,21 @@
 <div [formGroup]="generalFormGroup.form">
 
-  <span>{{label}}</span>
+  <span>{{ label | translate}}</span>
 
   @switch(type){
       @case (InputType.textarea) {
         <textarea
           type="text"
-          id="textarea"
-          [formControlName]="controlName">
+          [formControlName]="controlName"
+          [id]="id">
         </textarea>
       }
 
       @default {
         <input
-          [type]="type === InputType.password? InputType [InputType.password]: InputType [InputType.input]"
-          id="input"
+          [type]="InputType[type]"
           [formControlName]="controlName"
+          [id]="id"
         />
       }
   }

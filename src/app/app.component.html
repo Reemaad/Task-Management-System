@@ -8,17 +8,19 @@
         <custom-input 
         [generalFormGroup]="form"  
         [errorMessages]="errorMessages['username']"
-        [label]="'LOGIN.USERNAME'|translate" 
+        [label]="'LOGIN.USERNAME'" 
         [type]="InputType.input"
-        [controlName]="'username'">
+        [controlName]="'username'"
+        [id]="InputType[InputType.input]">
         </custom-input>  
 
         <custom-input 
         [generalFormGroup]="form" 
         [errorMessages]="errorMessages['password']"
-        [label]="'LOGIN.PASSWORD'|translate" 
+        [label]="'LOGIN.PASSWORD'" 
         [type]="InputType.password"
-        [controlName]="'password'">
+        [controlName]="'password'"
+        [id]="InputType[InputType.password]">
         </custom-input>
     </div>
 

@@ -10,8 +10,7 @@ import {
 } from "@angular/forms";
 import { InputComponent } from "./components/input/input.component";
 import { InputValidator } from "./components/enums/input-validator";
-import { ErrorMessage } from "./components/models/error-message.model";
-import { TranslateModule } from "@ngx-translate/core";
+import { ErrorMessage } from "./components/models/error-message";
 import { InputType } from "./components/enums/input-type";
 
 @Component({
@@ -23,7 +22,6 @@ import { InputType } from "./components/enums/input-type";
     FooterComponent,
     InputComponent,
     ReactiveFormsModule,
-    TranslateModule,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
