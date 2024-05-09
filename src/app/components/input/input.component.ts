@@ -26,7 +26,7 @@ export class InputComponent {
   @Input() errorMessages!: ErrorMessage[];
   @Input() label = "";
   @Input() id = "";
-  @Input() type: InputType = InputType.input;
+  @Input() type: InputType = InputType.text;
   InputType = InputType;
 
   getErrorByType(validator: InputValidator): boolean {
