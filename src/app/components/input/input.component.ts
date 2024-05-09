@@ -35,7 +35,6 @@ export class InputComponent {
       control &&
       control?.errors &&
       control?.touched &&
-      control?.dirty &&
       control?.errors?.[InputValidator[validator]]
     );
   }
