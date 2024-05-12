@@ -18,8 +18,7 @@ export class TableComponent<T extends TableData> {
   String = String;
   CustomType = CustomType;
 
-  constructor(private translate: TranslateService) {
-    this.translate.setDefaultLang('ar');
+  constructor() {
   }
 
   handleIconClick(columnNo: number, dataId: number): void {
