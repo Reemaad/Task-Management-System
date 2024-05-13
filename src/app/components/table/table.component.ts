@@ -14,14 +14,13 @@ import { TableData } from '../models/table-data';
 export class TableComponent<T extends TableData> {
   @Input() tableData!: T[];
   @Input({ required: true }) columns: Column<T>[] = [];
+
   @Output() action = new EventEmitter<number[]>();
+
   String = String;
   CustomType = CustomType;
 
-  constructor() {
-  }
-
   handleIconClick(columnNo: number, dataId: number): void {
-    this.action.emit([ columnNo, dataId]);
+    this.action.emit([columnNo, dataId]);
   }
 }

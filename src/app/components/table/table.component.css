@@ -1,5 +1,7 @@
 .table {
   direction: rtl;
+  width: 100%;
+  height: 100%;
   align-items: center;
   text-align: center;
   border-collapse: collapse;
