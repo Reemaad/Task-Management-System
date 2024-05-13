@@ -1,9 +1,9 @@
 <custom-header></custom-header>
 <button (click)="openPopup()">Show Popup</button>
 @if(isPopupVisible){
-    <custom-popup (close)="closePopup()">
-        <p> هل تريد حذف هذه المهمة؟</p>
-        <button>نعم</button>
-    </custom-popup>
+<popup (close)="closePopup()" [title]="popupTitle">
+    <p> هل تريد حذف هذه المهمة؟</p>
+    <button>نعم</button>
+</popup>
 }
 <custom-footer></custom-footer>

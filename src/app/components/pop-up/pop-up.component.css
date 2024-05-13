@@ -15,14 +15,16 @@
     background-color: white;
     border: 1px solid #ccc;
     padding: 20px;
-    width: 600px;
     border-radius: 11px;
-    position: relative;
+    position: flex;
 }
 
-.close-icon {
-    position: absolute;
-    top: 10px;
-    left: 15px;
+.popup-title {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.popup .close-icon {
+    color: #6C6C6C;
     cursor: pointer;
 }

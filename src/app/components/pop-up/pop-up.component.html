@@ -1,6 +1,11 @@
 <div [hidden]="isPopupVisible" class="popup-overlay">
     <div class="popup">
         <i class="bi bi-x-circle close-icon" (click)="closePopup()"></i>
-    <ng-content></ng-content>
+        <h5 class="popup-title">
+            @if(title != null){
+            {{ title }}
+            }
+        </h5>
+        <ng-content></ng-content>
     </div>
 </div>
