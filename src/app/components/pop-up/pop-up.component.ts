@@ -3,7 +3,7 @@ import { TranslateModule } from "@ngx-translate/core";
 import { AppComponent } from "../../app.component";
 
 @Component({
-    selector: 'custom-popup',
+    selector: 'popup',
     standalone: true,
     templateUrl: './pop-up.component.html',
     styleUrl: './pop-up.component.css',
