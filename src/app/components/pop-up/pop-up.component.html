@@ -1,0 +1,6 @@
+<div [hidden]="isPopupVisible" class="popup-overlay">
+    <div class="popup">
+        <i class="bi bi-x-circle close-icon" (click)="closePopup()"></i>
+    <ng-content></ng-content>
+    </div>
+</div>
