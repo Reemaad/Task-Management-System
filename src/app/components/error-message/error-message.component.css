@@ -1,0 +1,6 @@
+.error-message {
+    display: flex;
+    gap: 6px;
+    color: #D71E13;
+    direction: rtl;
+}

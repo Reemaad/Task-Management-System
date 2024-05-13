@@ -1,0 +1,32 @@
+<div [formGroup]="generalFormGroup.form">
+
+  <span>{{ label | translate}}</span>
+
+  @switch(type){
+      @case (InputType.textarea) {
+        <textarea
+          type="text"
+          [formControlName]="controlName"
+          [id]="id">
+        </textarea>
+      }
+
+      @default {
+        <input
+          [type]="InputType[type]"
+          [formControlName]="controlName"
+          [id]="id"
+        />
+      }
+  }
+
+  @for (errorMessage of errorMessages; track errorMessage) {
+    @if(getErrorByType(errorMessage.validator)){
+    <error-message
+      class="error-message"
+      [message]="errorMessage.message">
+    </error-message>
+    }
+  }
+
+</div>

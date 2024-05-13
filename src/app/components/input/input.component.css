@@ -1,0 +1,17 @@
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+input, textarea {
+    border-radius: 11px;
+    border: 1px solid #C0C0C0;
+    text-align: right;
+    width: 100%;
+    height: 40px;
+}
+
+.error-message {
+    margin-right: 6px;
+}

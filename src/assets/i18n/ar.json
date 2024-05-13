@@ -2,11 +2,14 @@
   "GENERAL": {
     "GREETING": "مرحبا",
     "LOGOUT": "تسجيل الخروج",
-    "WEBSITE_NAME": "منصة إدارة المهام"
+    "WEBSITE_NAME": "منصة إدارة المهام",
+    "TASK_DESCRIPTION": "وصف المهمة"
   },
   "USER": {
-    "USERNAME": "الاسم",
-    "USER_ROLE": "الدور الوظيفي",
-    "USER_INFO_ROLE": "مدير النظام"
+    "NAME": "الاسم",
+    "ROLE": "الدور الوظيفي"
+  },
+  "LOGIN": {
+    "USERNAME": "اسم المستخدم"
   }
 }
