@@ -1,5 +1,5 @@
 import { Component, Input, Output } from "@angular/core";
-import { ButtonType } from "../enums/button-type";
+import { ButtonType } from "../../enums/button-type";
 import { CommonModule } from "@angular/common";
 import { EventEmitter } from "@angular/core";
 

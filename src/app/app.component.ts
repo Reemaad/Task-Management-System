@@ -3,6 +3,7 @@ import { RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 
+
 @Component({
   selector: "app-root",
   standalone: true,
@@ -10,6 +11,6 @@ import { FooterComponent } from "./components/footer/footer.component";
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
 })
-export class AppComponent {
+export class AppComponent<T> {
   title = "Task-Management-System";
 }

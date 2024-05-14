@@ -1,0 +1,37 @@
+<table class="table">
+
+  <thead>
+    @for (column of columns; track column) {
+    <th class="head">{{ column.label | translate}}</th>
+    }
+  </thead>
+  <tbody>
+
+  @for(data of tableData; track data) {
+    <tr class="row">
+    @for(column of columns; track column){
+
+      @if(column.showCustom){
+        @switch (column.customType) {
+          @case(CustomType.ICON){
+            <td>
+            <i class="{{column.customContent}} icon" (click)="handleIconClick($index, data.id)" [style.color]="column.iconColor"></i>
+            </td>
+          }
+    
+          @case(CustomType.IMAGE){
+            <td>
+              <img [src]="data[column.property]" class="table-image" alt="{{column.property}}">
+            </td>
+          }
+    }
+      } @else {
+      <td>{{ String(data[column.property]) }}</td>
+      }
+    }
+    </tr>
+  }
+
+  </tbody>
+
+</table>
