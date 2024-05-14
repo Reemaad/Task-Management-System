@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { Column } from '../models/column-data';
-import { CustomType } from '../enums/custom-type';
+import { CustomType } from '../../enums/custom-type';
 import { TableData } from '../models/table-data';
 
 @Component({
