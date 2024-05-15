@@ -10,17 +10,12 @@ import { AppComponent } from "../../app.component";
   imports: [TranslateModule]
 })
 export class PopUpComponent {
-  @Input() isPopupVisible: boolean = false;
+  @Input() visible: boolean = false;
   @Input() title?: string;
 
   @Output() close: EventEmitter<void> = new EventEmitter<void>();
 
-  openPopup() {
-    this.isPopupVisible = true;
-  }
-
   closePopup() {
-    this.isPopupVisible = false;
     this.close.emit();
   }
 }

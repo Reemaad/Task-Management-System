@@ -2,8 +2,10 @@
 <button (click)="openPopup()">Show Popup</button>
 @if(isPopupVisible){
 <popup (close)="closePopup()" [title]="popupTitle">
-    <p> هل تريد حذف هذه المهمة؟</p>
-    <button>نعم</button>
+    <div class="body">
+        <p> هل تريد حذف هذه المهمة؟</p>
+        <button>نعم</button>
+    </div>
 </popup>
 }
 <custom-footer></custom-footer>
