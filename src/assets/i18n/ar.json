@@ -2,8 +2,7 @@
   "GENERAL": {
     "GREETING": "مرحبا",
     "LOGOUT": "تسجيل الخروج",
-    "WEBSITE_NAME": "منصة إدارة المهام",
-    "TASK_DESCRIPTION": "وصف المهمة"
+    "WEBSITE_NAME": "منصة إدارة المهام"
   },
   "USER": {
     "NAME": "الاسم",
@@ -11,5 +10,17 @@
   },
   "LOGIN": {
     "USERNAME": "اسم المستخدم"
+  },
+  "DROPDOWN": {
+    "TASK_STATUS": "حالة المهمة",
+    "PLACEHOLDER": "اختر"
+  },
+  "DROPDOWNـOPTIONS": {
+    "OPTION1_LABEL": "اكتملت",
+    "OPTION2_LABEL": "مستمر",
+    "OPTION3_LABEL": "لم تبدء",
+    "OPTION1_VALUE": "اكتملت المهمة",
+    "OPTION2_VALUE": "المهمة مستمرة",
+    "OPTION3_VALUE": "لم تبدء المهمة"
   }
 }

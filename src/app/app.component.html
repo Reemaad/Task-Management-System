@@ -1,2 +1,11 @@
 <custom-header></custom-header>
 <custom-footer></custom-footer>
+
+<div class="custom-dropdown">
+    <custom-dropdown 
+    [label]="'DROPDOWN.TASK_STATUS'"
+    [placeholder]="'DROPDOWN.PLACEHOLDER'"
+    [items]="items"
+    (selectedItemChanged)="onSelectedItemChanged($event)"
+    ></custom-dropdown> 
+</div>
