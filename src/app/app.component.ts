@@ -11,6 +11,6 @@ import { PopUpComponent } from "./components/pop-up/pop-up.component";
   styleUrl: "./app.component.css",
   imports: [RouterOutlet, HeaderComponent, FooterComponent, PopUpComponent]
 })
-export class AppComponent<T> {
+export class AppComponent {
   title = "Task-Management-System";
 }
