@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { DropdownItem } from "../models/dropdown-item";
+import { DropdownItem } from "../../models/dropdown-item";
 import { TranslateModule } from "@ngx-translate/core";
 
 @Component({
