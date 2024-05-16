@@ -1,11 +1,11 @@
 <dialog #dialog class="popup-overlay">
     <div class="popup">
         <div class="popup-header">
-            <h5 class="popup-title">
+            <span class="popup-title">
                 @if(title){
                 {{ title }}
                 }
-            </h5>
+            </span>
             <i class="bi bi-x-circle close-icon" (click)="closePopup()"></i>
         </div>
         <div>
