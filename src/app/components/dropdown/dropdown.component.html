@@ -1,0 +1,24 @@
+<div>
+    <span>{{ label | translate }}</span>
+    <div class="select-container">
+        <select 
+        #dropdown 
+        title="dropdown" 
+        (change)="onSelect(dropdown.value)">
+
+            <option
+            disabled
+            selected
+            [value]="-1">
+            {{placeholder | translate}}
+            </option>
+
+            @for( item of items; track item ){
+                <option
+                [value]="item.value | translate">
+                {{item.label | translate}}
+                </option>
+            }  
+        </select>
+    </div>
+</div>

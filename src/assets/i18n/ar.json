@@ -2,8 +2,7 @@
   "GENERAL": {
     "GREETING": "مرحبا",
     "LOGOUT": "تسجيل الخروج",
-    "WEBSITE_NAME": "منصة إدارة المهام",
-    "TASK_DESCRIPTION": "وصف المهمة"
+    "WEBSITE_NAME": "منصة إدارة المهام"
   },
   "USER": {
     "NAME": "الاسم",
