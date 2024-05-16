@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { dropdownList } from "../models/dropdown-list";
+import { DropdownItem } from "../models/dropdown-item";
 import { TranslateModule } from "@ngx-translate/core";
 
 @Component({
@@ -12,7 +12,7 @@ import { TranslateModule } from "@ngx-translate/core";
 export class DropdownComponent {
   @Input() label = "";
   @Input() placeholder = "";
-  @Input() items!: dropdownList[];
+  @Input() items!: DropdownItem[];
   @Output() selectedItemChanged = new EventEmitter<string>();
 
   onSelect(value: string) {
