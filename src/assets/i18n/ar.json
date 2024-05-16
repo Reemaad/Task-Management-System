@@ -10,17 +10,5 @@
   },
   "LOGIN": {
     "USERNAME": "اسم المستخدم"
-  },
-  "DROPDOWN": {
-    "TASK_STATUS": "حالة المهمة",
-    "PLACEHOLDER": "اختر"
-  },
-  "DROPDOWNـOPTIONS": {
-    "OPTION1_LABEL": "اكتملت",
-    "OPTION2_LABEL": "مستمر",
-    "OPTION3_LABEL": "لم تبدء",
-    "OPTION1_VALUE": "اكتملت المهمة",
-    "OPTION2_VALUE": "المهمة مستمرة",
-    "OPTION3_VALUE": "لم تبدء المهمة"
   }
 }
