@@ -2,10 +2,10 @@ import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
 import { FormGroupDirective, ReactiveFormsModule } from "@angular/forms";
 import { ErrorMessageComponent } from "../error-message/error-message.component";
-import { ErrorMessage } from "../models/error-message";
 import { InputValidator } from "../../enums/input-validator";
 import { InputType } from "../../enums/input-type";
 import { TranslateModule } from "@ngx-translate/core";
+import { ErrorMessage } from "../../models/error-message";
 
 @Component({
   selector: "custom-input",

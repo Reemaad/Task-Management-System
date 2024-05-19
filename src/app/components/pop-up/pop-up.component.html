@@ -1,0 +1,15 @@
+<dialog #dialog class="popup-overlay">
+    <div class="popup">
+        <div class="popup-header">
+            <span class="popup-title">
+                @if(title){
+                {{ title }}
+                }
+            </span>
+            <i class="bi bi-x-circle close-icon" (click)="closePopup()"></i>
+        </div>
+        <div class="body">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</dialog>
