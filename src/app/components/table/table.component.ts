@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TranslateModule, TranslateService } from "@ngx-translate/core";
-import { Column } from '../models/column-data';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { TranslateModule } from "@ngx-translate/core";
 import { CustomType } from '../../enums/custom-type';
-import { TableData } from '../models/table-data';
+import { TableData } from '../../models/table-data';
+import { Column } from '../../models/column-data';
 
 @Component({
   selector: 'custom-table',

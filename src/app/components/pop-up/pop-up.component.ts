@@ -1,6 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { TranslateModule } from "@ngx-translate/core";
-import { AppComponent } from "../../app.component";
 
 @Component({
   selector: 'popup',
