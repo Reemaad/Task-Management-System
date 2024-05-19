@@ -19,7 +19,6 @@
 .popup {
     background-color: white;
     border: 1px solid #ccc;
-    padding: 10px;
     border-radius: 11px;
 }
 
@@ -27,14 +26,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 22px;
 }
 
 .popup-title {
     font-size: 20px;
+    font-weight: bold;
 }
 
 .close-icon {
     font-size: 26px;
     color: #6C6C6C;
     cursor: pointer;
+    padding-left: 8px;
+}
+
+.body {
+    padding: 22px;
 }
