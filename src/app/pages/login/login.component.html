@@ -1,0 +1,37 @@
+<div class="login-container">
+<div class="login">
+    <div class="login-header">
+        <img src="assets/images/png/logo.png" alt="logo" class="logo">
+        <span class="website-name"> {{'GENERAL.WEBSITE_NAME'|translate}}</span>
+    </div>
+
+    <div class="login-card">
+        <span class="card-title">{{'GENERAL.LOGIN'| translate}}</span>
+
+        <form #form="ngForm" [formGroup]="loginForm" class="form">
+
+            <div class="input-field">
+                <custom-input
+                [generalFormGroup]="form"
+                [label]="'LOGIN.USERNAME'"
+                [type]="InputType.text"
+                [controlName]="'username'"
+                [id]="'username'">
+                </custom-input>
+
+                <custom-input
+                [generalFormGroup]="form"
+                [label]="'LOGIN.PASSWORD'"
+                [type]="InputType.password"
+                [controlName]="'password'"
+                [id]="'password'">
+                </custom-input>
+            </div>
+
+        </form>
+
+        <custom-button [type]="ButtonType.PRIMARY" class="button">تسجيل الدخول</custom-button>
+    </div>
+</div>
+<custom-footer></custom-footer>
+</div>
