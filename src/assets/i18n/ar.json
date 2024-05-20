@@ -10,5 +10,15 @@
   },
   "LOGIN": {
     "USERNAME": "اسم المستخدم"
+  },
+  "TASK-MANAGER": {
+    "ADD_TASK": "اضافة مهمة",
+    "TASK_MANAGEMENT": "إدارة المهام"
+  },
+  "TABLE": {
+    "ID": "رقم المهمة",
+    "STATUS": "حالة المهمة",
+    "DESCRIPTION": "وصف المهمة",
+    "DESCRIPTION_DATA": "مراجعة ملفات التصميم"
   }
 }
