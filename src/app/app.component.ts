@@ -1,6 +1,5 @@
-import { Component } from "@angular/core";
-import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
-import { RouterOutlet } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
+import { RouterOutlet, NavigationEnd, Router } from "@angular/router";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 
@@ -9,7 +8,7 @@ import { FooterComponent } from "./components/footer/footer.component";
   standalone: true,
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, LoginComponent, RouterLink, RouterLinkActive]
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, LoginComponent]
 })
   title = "Task-Management-System";
 
