@@ -1,0 +1,21 @@
+ <div class="task-manager-container">
+        
+    <div class="task-header-container">
+
+        <div class="button-container">
+            <custom-button 
+            [type]="ButtonType.SECONDARY"> 
+            {{'TASK.ADD_TASK' | translate}} 
+            </custom-button>
+        </div>
+
+        <span class="title">{{'TASK.TASK_MANAGEMENT' | translate}}</span>
+
+    </div>
+
+        <custom-table 
+        [tableData]="taskTable" 
+        [columns]="columns">
+        </custom-table>
+            
+</div>

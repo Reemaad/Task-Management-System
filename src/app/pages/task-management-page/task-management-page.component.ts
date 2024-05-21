@@ -1,11 +1,11 @@
 import { Component } from "@angular/core";
-import { ButtonComponent } from "../../button/button.component";
-import { TableComponent } from "../../table/table.component";
+import { ButtonComponent } from "../../components/button/button.component";
+import { TableComponent } from "../../components/table/table.component";
 import { TranslateModule } from "@ngx-translate/core";
-import { ButtonType } from "../../../enums/button-type";
-import { TableData } from "../../../models/table-data";
-import { CustomType } from "../../../enums/custom-type";
-import { Column } from "../../../models/column-data";
+import { ButtonType } from "../../enums/button-type";
+import { TableData } from "../../models/table-data";
+import { CustomType } from "../../enums/custom-type";
+import { Column } from "../../models/column-data";
 
 @Component({
   selector: "task-management-page",
@@ -18,14 +18,14 @@ export class TaskManagementPageComponent<T> {
   ButtonType = ButtonType;
 
   columns: Column<TableData>[] = [
-    { label: "TABLE.ID", property: "id" },
+    { label: "TASK.ID", property: "id" },
     {
-      label: "TABLE.STATUS",
+      label: "TASK.STATUS",
       property: "status",
       showCustom: true,
       customType: CustomType.IMAGE,
     },
-    { label: "TABLE.DESCRIPTION", property: "description" },
+    { label: "TASK.DESCRIPTION", property: "description" },
     {
       label: "",
       property: "id",
@@ -44,26 +44,26 @@ export class TaskManagementPageComponent<T> {
     },
   ];
 
-  tableData: TableData[] = [
+  taskTable: TableData[] = [
     {
       id: 1,
       status: "/assets/images/png/pending.png",
-      description: "TABLE.DESCRIPTION_DATA",
+      description: "TASK.DESCRIPTION_DATA",
     },
     {
       id: 2,
       status: "/assets/images/png/inProgress.png",
-      description: "TABLE.DESCRIPTION_DATA",
+      description: "TASK.DESCRIPTION_DATA",
     },
     {
       id: 3,
       status: "/assets/images/png/completed.png",
-      description: "TABLE.DESCRIPTION_DATA",
+      description: "TASK.DESCRIPTION_DATA",
     },
     {
       id: 4,
       status: "/assets/images/png/inProgress.png",
-      description: "TABLE.DESCRIPTION_DATA",
+      description: "TASK.DESCRIPTION_DATA",
     },
   ];
 }
