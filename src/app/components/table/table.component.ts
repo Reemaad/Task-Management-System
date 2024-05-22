@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateModule } from "@ngx-translate/core";
-import { CustomType } from '../../enums/custom-type';
-import { TableData } from '../../models/table-data';
-import { Column } from '../../models/column-data';
+import { Column } from "../../models/column-data";
+import { CustomType } from "../../enums/custom-type";
+import { TableData } from "../../models/table-data";
 
 @Component({
   selector: "custom-table",
@@ -11,8 +11,8 @@ import { Column } from '../../models/column-data';
   standalone: true,
   imports: [TranslateModule],
 })
-export class TableComponent<T extends TasksTable> {
-  @Input() tasksTable!: T[];
+export class TableComponent<T extends TableData> {
+  @Input() data!: T[];
   @Input({ required: true }) columns: Column<T>[] = [];
 
   @Output() action = new EventEmitter<number[]>();

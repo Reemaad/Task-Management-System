@@ -7,7 +7,7 @@
   </thead>
   <tbody>
 
-  @for(data of tasksTable; track data) {
+  @for(element of data; track data) {
     <tr class="row">
     @for(column of columns; track column){
 
@@ -15,18 +15,18 @@
         @switch (column.customType) {
           @case(CustomType.ICON){
             <td>
-            <i class="{{column.customContent}} icon" (click)="handleIconClick($index, data.id)" [style.color]="column.iconColor"></i>
+            <i class="{{column.customContent}} icon" (click)="handleIconClick($index, element.id)" [style.color]="column.iconColor"></i>
             </td>
           }
     
           @case(CustomType.IMAGE){
             <td>
-              <img [src]="data[column.property]" class="table-image" alt="{{column.property}}">
+              <img [src]="element[column.property]" class="table-image" alt="{{column.property}}">
             </td>
           }
     }
       } @else {
-      <td>{{ String(data[column.property]) | translate}}</td>
+      <td>{{ String(element[column.property]) | translate}}</td>
       }
     }
     </tr>
