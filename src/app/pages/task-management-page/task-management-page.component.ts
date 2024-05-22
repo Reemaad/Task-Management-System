@@ -3,7 +3,7 @@ import { ButtonComponent } from "../../components/button/button.component";
 import { TableComponent } from "../../components/table/table.component";
 import { TranslateModule } from "@ngx-translate/core";
 import { ButtonType } from "../../enums/button-type";
-import { TableData } from "../../models/table-data";
+import { TasksTable } from "../../models/tasks-table";
 import { CustomType } from "../../enums/custom-type";
 import { Column } from "../../models/column-data";
 
@@ -14,10 +14,10 @@ import { Column } from "../../models/column-data";
   templateUrl: "./task-management-page.component.html",
   styleUrl: "./task-management-page.component.css",
 })
-export class TaskManagementPageComponent<T> {
+export class TaskManagementPageComponent {
   ButtonType = ButtonType;
 
-  columns: Column<TableData>[] = [
+  columns: Column<TasksTable>[] = [
     { label: "TASK.ID", property: "id" },
     {
       label: "TASK.STATUS",
@@ -44,7 +44,7 @@ export class TaskManagementPageComponent<T> {
     },
   ];
 
-  taskTable: TableData[] = [
+  tasksTable: TasksTable[] = [
     {
       id: 1,
       status: "/assets/images/png/pending.png",

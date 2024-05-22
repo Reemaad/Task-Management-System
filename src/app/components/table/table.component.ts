@@ -5,14 +5,14 @@ import { TableData } from '../../models/table-data';
 import { Column } from '../../models/column-data';
 
 @Component({
-  selector: 'custom-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css'],
+  selector: "custom-table",
+  templateUrl: "./table.component.html",
+  styleUrls: ["./table.component.css"],
   standalone: true,
-  imports: [TranslateModule]
+  imports: [TranslateModule],
 })
-export class TableComponent<T extends TableData> {
-  @Input() tableData!: T[];
+export class TableComponent<T extends TasksTable> {
+  @Input() tasksTable!: T[];
   @Input({ required: true }) columns: Column<T>[] = [];
 
   @Output() action = new EventEmitter<number[]>();
