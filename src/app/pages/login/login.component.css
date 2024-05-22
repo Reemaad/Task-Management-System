@@ -1,14 +1,24 @@
 .login {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
     direction: rtl;
+    width: 100%;
+    height: 100%;
+}
+
+.login-Container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .login-header {
     display: flex;
     justify-content: center;
-    padding: 30px;
     gap: 20px;
 }
 
@@ -30,9 +40,9 @@
     border: 1.42px solid #E3DFDF;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding-block: 80px;
+    align-items: center;
+    padding-block: 60px;
     gap: 50px;
 }
 

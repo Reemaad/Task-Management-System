@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { InputType } from '../../enums/input-type';
-import { FooterComponent } from "../../components/footer/footer.component";
 import { InputComponent } from "../../components/input/input.component";
 import { RouterOutlet } from "@angular/router";
 import { TranslateModule } from "@ngx-translate/core";
@@ -13,14 +12,14 @@ import { ButtonType } from '../../enums/button-type';
   standalone: true,
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-  imports: [FooterComponent, TranslateModule, InputComponent, RouterOutlet, ReactiveFormsModule, ButtonComponent]
+  imports: [TranslateModule, InputComponent, RouterOutlet, ReactiveFormsModule, ButtonComponent]
 })
 export class LoginComponent {
   loginForm!: FormGroup;
   InputType = InputType;
   ButtonType = ButtonType;
 
-  ngOnInit(): void {
+  constructor() {
     this.loginForm = new FormGroup({
       username: new FormControl("", [
         Validators.required,
@@ -32,5 +31,4 @@ export class LoginComponent {
       ]),
     });
   }
-
 }

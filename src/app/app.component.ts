@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { RouterOutlet, NavigationEnd, Router } from "@angular/router";
+import { Component } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 
@@ -10,24 +10,11 @@ import { FooterComponent } from "./components/footer/footer.component";
   styleUrl: "./app.component.css",
   imports: [RouterOutlet, HeaderComponent, FooterComponent, LoginComponent]
 })
+export class AppComponent {
   title = "Task-Management-System";
 
-  constructor(private router: Router) {}
-
-  ngOnInit() {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.updateLayout(event.urlAfterRedirects);
-      }
-    });
+  get showHeader(): boolean {
+    return !window.location.href.includes('login');
   }
 
-  updateLayout(url: string) {
-    if (url === '/login') {
-      this.showHeader = false;
-    } else {
-      this.showHeader = true;
-    }
-  }
-  
 }
