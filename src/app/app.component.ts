@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Router, RouterOutlet } from "@angular/router";
+import { RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 
@@ -12,10 +12,9 @@ import { FooterComponent } from "./components/footer/footer.component";
 })
 export class AppComponent {
   title = "Task-Management-System";
-  
-  constructor(private router: Router) {}
 
   get showHeader(): boolean {
-    return this.router.url.includes('header');
+    return !window.location.href.includes('login');
   }
+
 }
