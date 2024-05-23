@@ -1,4 +1,5 @@
-<button [ngClass]="{'primary-btn': type === ButtonType.PRIMARY ,'secondary-btn': type === ButtonType.SECONDARY}"
-    (click)="emitEvent()">
-    <ng-content></ng-content>
+<button 
+[ngClass]="{'primary-btn': type === ButtonType.PRIMARY ,'secondary-btn': type === ButtonType.SECONDARY}"
+(click)="emitEvent()">
+<ng-content></ng-content>
 </button>
