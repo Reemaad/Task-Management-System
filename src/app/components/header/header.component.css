@@ -122,3 +122,23 @@
   font-weight: 700;
   color: var(--primary-color);
 }
+
+.popup {
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  padding-inline: 44px;
+}
+
+.popup-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.button-container {
+  width: 150px;
+}

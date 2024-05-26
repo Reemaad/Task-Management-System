@@ -1,8 +1,6 @@
 <header class="header">
-
     <div class="user-button-container">
-
-        <button type="button" class="user-button" (click)=toggleMenu()>
+        <button type="button" class="user-button" (click)="toggleMenu()">
             <i class="dropdown-icon bi bi-chevron-compact-down"></i>
             <div class="user-info-btn">
                 <span class="greeting">{{'GENERAL.GREETING' | translate}}</span>
@@ -11,11 +9,8 @@
             <i class="user-icon bi bi-person-circle"></i>
         </button>
 
-
-        @if(showMenuItems){
-        <div class="user-menu-container">
+        <div *ngIf="showMenuItems" class="user-menu-container">
             <div class="user-menu">
-
                 <div class="user-info-menu">
                     <span class="label-name">{{'LOGIN.USERNAME'| translate}}</span>
                     <span class="value-name">سعد ناصر المطيري</span>
@@ -25,20 +20,35 @@
 
                 <span class="horizontal-line"></span>
 
-                <button type="button" class="logout-button" (click)="logout()">
-                    <span> {{'GENERAL.LOGOUT'|translate}}</span>
-                    <i class="logout-icon bi-box-arrow-left"></i>
+                <button type="button" class="logout-button" (click)="openPopup()">
+                    <span>{{'GENERAL.LOGOUT' | translate}}</span>
+                    <i class="logout-icon bi bi-box-arrow-left"></i>
                 </button>
             </div>
         </div>
-        }
-
     </div>
 
     <div class="website-info">
-        <span class="website-name"> {{'GENERAL.WEBSITE_NAME'|translate}}</span>
+        <span class="website-name">{{'GENERAL.WEBSITE_NAME' | translate}}</span>
         <img src="assets/images/png/line.png" alt="line" class="line">
         <img src="assets/images/png/logo.png" alt="logo" class="logo">
     </div>
 
+
 </header>
+
+<popup #popup (close)="closePopup()">
+    <div class="popup">
+        <span>{{'MESSAGE.LOGOUT_MESSAGE' | translate}}</span>
+        <div class="popup-buttons-container">
+            <div class="button-container">
+                <custom-button [type]="ButtonType.PRIMARY" (click)="logout()">{{'MESSAGE.YES' |
+                    translate}}</custom-button>
+            </div>
+            <div class="button-container">
+                <custom-button [type]="ButtonType.SECONDARY" (click)="closePopup()">{{'MESSAGE.NO'|
+                    translate}}</custom-button>
+            </div>
+        </div>
+    </div>
+</popup>
