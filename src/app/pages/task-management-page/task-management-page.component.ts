@@ -8,7 +8,7 @@ import { CustomType } from "../../enums/custom-type";
 import { Column } from "../../models/column-data";
 import { PopUpComponent } from "../../components/pop-up/pop-up.component";
 import { DropdownItem } from "../../models/dropdown-item";
-import { FormControl, FormGroup, FormGroupDirective, NgForm, ReactiveFormsModule, Validators } from "@angular/forms";
+import { FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule, Validators } from "@angular/forms";
 import { ErrorMessage } from "../../models/error-message";
 import { InputValidator } from "../../enums/input-validator";
 import { DropdownComponent } from "../../components/dropdown/dropdown.component";
@@ -33,7 +33,7 @@ export class TaskManagementPageComponent {
   @ViewChild('deleteTaskPopup') deleteTaskPopup!: PopUpComponent;
   @ViewChild('addEditPopup') addEditPopup!: PopUpComponent;
   @ViewChild(FormGroupDirective) formGroupDirective!: FormGroupDirective;
-    @ViewChild(DropdownComponent) dropdownComponent!: DropdownComponent;
+  @ViewChild(DropdownComponent) dropdownComponent!: DropdownComponent;
 
   columns: Column<Task>[] = [
     { label: "TASK.ID", property: "id" },
