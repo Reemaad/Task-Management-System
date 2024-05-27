@@ -1,5 +1,11 @@
-<div>
-    <span>{{ label | translate }}</span>
+<div [formGroup]="generalFormGroup.form">
+    <div class="label">
+        <span>{{ label | translate }}</span>
+
+        @if (isRequired) {
+        <span class="required"> * </span>
+        }
+    </div>
     <div class="select-container">
         <select 
         #dropdown 
@@ -21,4 +27,13 @@
             }  
         </select>
     </div>
+
+    @for (errorMessage of errorMessages; track errorMessage) {
+        @if(getErrorByType(errorMessage.validator)){
+        <error-message
+        class="error-message"
+        [message]="errorMessage.message">
+        </error-message>
+        }
+    }
 </div>

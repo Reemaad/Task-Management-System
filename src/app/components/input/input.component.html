@@ -1,7 +1,11 @@
 <div [formGroup]="generalFormGroup.form">
+  <div class="label">
+    <span>{{ label | translate }}</span>
 
-  <span>{{ label | translate}}</span>
-
+    @if (isRequired) {
+    <span class="required"> * </span>
+    }
+</div>
   @switch(type){
       @case (InputType.textarea) {
         <textarea

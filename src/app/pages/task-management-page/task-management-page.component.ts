@@ -16,9 +16,13 @@ import { PopUpComponent } from "../../components/pop-up/pop-up.component";
   styleUrl: "./task-management-page.component.css",
 })
 export class TaskManagementPageComponent {
+  taskForm!: FormGroup;
+  InputType = InputType;
   ButtonType = ButtonType;
   @ViewChild(PopUpComponent) deleteTaskPopup!: PopUpComponent;
   taskIdToDelete!: number | null;
+
+  @ViewChild(PopUpComponent) popup!: PopUpComponent;
 
   columns: Column<Tasks>[] = [
     { label: "TASK.ID", property: "id" },
@@ -97,4 +101,49 @@ export class TaskManagementPageComponent {
   closePopup() {
     this.deleteTaskPopup.close();
   }
+  statusList: DropdownItem[] = [
+    { value: "/assets/images/png/completed.png", label: "DROPDOWN.OPTION1_LABEL" },
+    { value: "/assets/images/png/inProgress.png", label: "DROPDOWN.OPTION2_LABEL" },
+    { value: "/assets/images/png/pending.png", label: "DROPDOWN.OPTION3_LABEL" },
+  ];
+  constructor() {
+    this.taskForm = new FormGroup({
+      status: new FormControl("", [
+        Validators.required,
+      ]),
+      description: new FormControl("", [
+        Validators.required,
+      ]),
+    });
+  }
+
+  errorMessages: { [type: string]: ErrorMessage[] } = {
+    status: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }],
+    description: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }]
+  };
+  openPopup() {
+    this.popup.open();
+  }
+  closePopup() {
+    this.popup.closePopup();
+    this.taskForm.reset();
+  }
+  onSelectedItemChanged(value: string) {
+    this.taskForm.get('status')?.setValue(value);
+  }
+  addTask() {
+    if (this.taskForm.valid) {
+      const newTask: Tasks = {
+        id: this.tasks.length + 1,
+        status: this.taskForm.get('status')?.value,
+        description: this.taskForm.value.description
+      };
+      this.tasks.push(newTask);
+      this.closePopup();
+      this.taskForm.reset();
+    } else {
+      this.taskForm.markAllAsTouched();
+    }
+  }
+
 }
