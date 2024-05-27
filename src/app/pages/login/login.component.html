@@ -12,7 +12,9 @@
             <form 
             #form="ngForm" 
             [formGroup]="loginForm"
-            class="form">
+            class="form"
+            (ngSubmit)="onSubmit()"
+            >
 
                 <div class="input-field">
                     <custom-input 
@@ -21,7 +23,9 @@
                     [type]="InputType.text"
                     [controlName]="'username'" 
                     [id]="'username'"
-                    [errorMessages]="errorMessages['username']">
+                    [errorMessages]="errorMessages['username']"
+                    [submitted]="submitted"
+                    >
                     </custom-input>
 
                     <custom-input
@@ -30,18 +34,20 @@
                     [type]="InputType.password"
                     [controlName]="'password'" 
                     [id]="'password'"
-                    [errorMessages]="errorMessages['password']">
+                    [errorMessages]="errorMessages['password']"
+                    [submitted]="submitted"
+                    >
                     </custom-input>
                 </div>
 
-            </form>
+                <div class="login-button">
+                    <custom-button 
+                    [type]="ButtonType.PRIMARY">
+                    {{'GENERAL.LOGIN' | translate}}
+                    </custom-button>
+                </div>
 
-            <custom-button 
-            [type]="ButtonType.PRIMARY" 
-            (onClick)="onSubmit()" 
-            class="button">
-            {{'GENERAL.LOGIN' | translate}}
-            </custom-button>
+            </form>
             
         </div>
     </div>

@@ -14,6 +14,10 @@ import { ButtonType } from "../../enums/button-type";
 import { InputValidator } from "../../enums/input-validator";
 import { ErrorMessage } from "../../models/error-message";
 import { Router } from "@angular/router";
+import {
+  USERNAME_PATTERN,
+  PASSWORD_PATTERN,
+} from "../../../utils/validation-patterns";
 
 @Component({
   selector: "login",
@@ -32,23 +36,21 @@ export class LoginComponent {
   loginForm!: FormGroup;
   InputType = InputType;
   ButtonType = ButtonType;
+  submitted = false;
 
   constructor(private router: Router) {
     this.loginForm = new FormGroup({
       username: new FormControl("", [
         Validators.required,
-        Validators.pattern(/^\d{10}$/),
+        Validators.pattern(USERNAME_PATTERN),
       ]),
       password: new FormControl("", [
         Validators.required,
-        Validators.pattern(
-          "^(?=.*[a-zA-Z0-9])(?=.*[@$%&*!])[a-zA-Z0-9@$%&*!]{8,}$"
-        ),
+        Validators.pattern(PASSWORD_PATTERN),
         Validators.maxLength(30),
       ]),
     });
   }
-
 
   errorMessages: { [type: string]: ErrorMessage[] } = {
     username: [
@@ -78,10 +80,9 @@ export class LoginComponent {
   };
 
   onSubmit() {
+    this.submitted = true;
     if (this.loginForm.valid) {
       this.router.navigate(["tasks"]);
-    } else {
-      this.loginForm.markAllAsTouched();
     }
   }
 }
