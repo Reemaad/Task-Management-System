@@ -29,13 +29,12 @@ export class HeaderComponent {
   }
 
   closePopup() {
-    this.popup.closePopup();
+    this.popup.close();
   }
 
   constructor(private router: Router) { }
 
   logout() {
-    // If there is Logic when Manal implement login
     this.router.navigate(['/login']);
   }
 }
