@@ -27,6 +27,7 @@ export class InputComponent {
   @Input() label = "";
   @Input() id = "";
   @Input() type: InputType = InputType.text;
+  @Input() isRequired!: boolean;
   InputType = InputType;
 
   getErrorByType(validator: InputValidator): boolean {

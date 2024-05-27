@@ -3,9 +3,8 @@
     <div class="task-header-container">
 
         <div class="button-container">
-            <custom-button 
-            [type]="ButtonType.SECONDARY"> 
-            {{'TASK.ADD_TASK' | translate}} 
+            <custom-button [type]="ButtonType.SECONDARY" (click)="openPopup()">
+                {{'TASK.ADD_TASK' | translate}}
             </custom-button>
         </div>
 
@@ -44,3 +43,39 @@
             </div>
         </popup>
 </div>
+<popup #popup (close)="closePopup()" [title]= "'TASK.ADD_TASK_NEW'">
+    <div class="popup-create-task">
+        <form #form="ngForm" [formGroup]="taskForm" class="popup-form">
+
+        <div class="dropdown-container">
+            <custom-dropdown
+            [generalFormGroup]="form"
+            [isRequired]="true"
+            [label]="'TASK.STATUS'"
+            [placeholder]="'DROPDOWN.PLACEHOLDER'"
+            [controlName]="'status'"
+            [items]="statusList"
+            [errorMessages]="errorMessages['status']"
+            (selectedItemChanged)="onSelectedItemChanged($event)"></custom-dropdown>
+        </div>
+
+            <div class="input-container">
+            <custom-input
+            [generalFormGroup]="form"
+            [isRequired]="true"
+            [label]="'TASK.DESCRIPTION'"
+            [type]="InputType.textarea"
+            [controlName]="'description'"
+            [id]="'description'"
+            [errorMessages]="errorMessages['description']">
+            </custom-input>
+            </div>
+
+            <div class="popup-button-container">
+                <custom-button [type]="ButtonType.PRIMARY" (click)="addTask()">{{'GENERAL.ADD' |
+                    translate}}</custom-button>
+            </div>
+
+        </form>
+    </div>
+</popup>
