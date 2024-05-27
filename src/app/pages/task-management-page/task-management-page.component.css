@@ -19,3 +19,26 @@
 .button-container {
     width: 220px;
 }
+
+.popup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 550px;
+    height: 175px;
+    gap: 45px;
+}
+
+.popup-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.confirm-button {
+    width: 150px;
+}
+
+.popup-message {
+    font-size: 23px;
+}

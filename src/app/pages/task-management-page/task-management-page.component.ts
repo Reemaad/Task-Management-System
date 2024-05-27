@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { ButtonComponent } from "../../components/button/button.component";
 import { TableComponent } from "../../components/table/table.component";
 import { TranslateModule } from "@ngx-translate/core";
@@ -6,17 +6,21 @@ import { ButtonType } from "../../enums/button-type";
 import { Tasks } from "../../models/tasks";
 import { CustomType } from "../../enums/custom-type";
 import { Column } from "../../models/column-data";
+import { PopUpComponent } from "../../components/pop-up/pop-up.component";
 
 @Component({
   selector: "task-management-page",
   standalone: true,
-  imports: [ButtonComponent, TableComponent, TranslateModule],
+  imports: [ButtonComponent, TableComponent, TranslateModule, PopUpComponent],
   templateUrl: "./task-management-page.component.html",
   styleUrl: "./task-management-page.component.css",
 })
 export class TaskManagementPageComponent {
   ButtonType = ButtonType;
-
+  @ViewChild(PopUpComponent) popup!: PopUpComponent;
+  //store the taskIDtaskID
+  taskIdToDelete: number | null = null;
+  
   columns: Column<Tasks>[] = [
     { label: "TASK.ID", property: "id" },
     {
@@ -66,4 +70,39 @@ export class TaskManagementPageComponent {
       description: "TASK.DESCRIPTION_DATA",
     },
   ];
+
+  handleTaskAction(taskID: number[]): void {
+    const columnNo = taskID[0];
+    const dataId = taskID[1];
+    if (columnNo === 4) {
+      this.taskIdToDelete = dataId;
+      this.popup.open();
+    } else if (columnNo === 3) {
+      this.editItem(dataId);
+    }
+  }
+
+  editItem(id: number): void {
+    console.log("Edit item:", id);
+  }
+
+  confirmDelete(): void {
+    if (this.taskIdToDelete !== null) {
+      this.deleteItem(this.taskIdToDelete);
+      this.taskIdToDelete = null;
+      this.popup.closePopup();
+    }
+  }
+
+  deleteItem(id: number): void {
+    const index = this.tasks.findIndex((item) => item.id === id);
+
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
+    }
+  }
+
+  closePopup() {
+    this.popup.closePopup();
+  }
 }

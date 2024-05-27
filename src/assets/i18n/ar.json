@@ -3,7 +3,9 @@
     "GREETING": "مرحبا",
     "LOGIN": "تسجيل الدخول",
     "LOGOUT": "تسجيل الخروج",
-    "WEBSITE_NAME": "منصة إدارة المهام"
+    "WEBSITE_NAME": "منصة إدارة المهام",
+    "YES": "نعم",
+    "NO": "لا"
   },
   "USER": {
     "NAME": "الاسم",
@@ -19,11 +21,7 @@
     "DESCRIPTION": "وصف المهمة",
     "DESCRIPTION_DATA": "مراجعة ملفات التصميم",
     "ADD_TASK": "اضافة مهمة",
-    "TASK_MANAGEMENT": "إدارة المهام"
-  },
-  "MESSAGE": {
-    "LOGOUT_MESSAGE": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
-    "YES": "نعم",
-    "NO": "لا"
+    "TASK_MANAGEMENT": "إدارة المهام",
+    "DELETION_CONFIRMATION": "هل انت متأكد انك تريد حذف المهمة؟"
   }
 }
