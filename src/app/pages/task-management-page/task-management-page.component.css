@@ -24,8 +24,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 550px;
-    height: 175px;
+    width: 580px;
+    height: 180px;
     gap: 45px;
 }
 
@@ -37,8 +37,4 @@
 
 .confirm-button {
     width: 150px;
-}
-
-.popup-message {
-    font-size: 23px;
 }

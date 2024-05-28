@@ -18,9 +18,8 @@ import { PopUpComponent } from "../../components/pop-up/pop-up.component";
 export class TaskManagementPageComponent {
   ButtonType = ButtonType;
   @ViewChild(PopUpComponent) popup!: PopUpComponent;
-  //store the taskIDtaskID
-  taskIdToDelete: number | null = null;
-  
+  taskIdToDelete!: number | null;
+
   columns: Column<Tasks>[] = [
     { label: "TASK.ID", property: "id" },
     {
@@ -71,19 +70,12 @@ export class TaskManagementPageComponent {
     },
   ];
 
-  handleTaskAction(taskID: number[]): void {
-    const columnNo = taskID[0];
-    const dataId = taskID[1];
-    if (columnNo === 4) {
+  handleTaskAction(columnNo: number, dataId: number): void {
+    const COLUMN_NO = 4;
+    if (columnNo === COLUMN_NO) {
       this.taskIdToDelete = dataId;
       this.popup.open();
-    } else if (columnNo === 3) {
-      this.editItem(dataId);
     }
-  }
-
-  editItem(id: number): void {
-    console.log("Edit item:", id);
   }
 
   confirmDelete(): void {

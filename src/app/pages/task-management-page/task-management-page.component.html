@@ -16,14 +16,12 @@
         <custom-table 
         [data]="tasks" 
         [columns]="columns"
-        (action)="handleTaskAction($event)">
-
-
+        (action)="handleTaskAction($event[0],$event[1])">
         </custom-table>
             
         <popup #popup (close)="closePopup()">
             <div class="popup-container">
-                <span class="popup-message">{{'TASK.DELETION_CONFIRMATION' | translate}}</span>
+                <span class="popup-message">{{'MESSAGE.DELETION_CONFIRMATION' | translate}}</span>
                 <div class="popup-buttons-container">
 
                     <div class="confirm-button">

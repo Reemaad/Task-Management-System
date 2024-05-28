@@ -21,7 +21,9 @@
     "DESCRIPTION": "وصف المهمة",
     "DESCRIPTION_DATA": "مراجعة ملفات التصميم",
     "ADD_TASK": "اضافة مهمة",
-    "TASK_MANAGEMENT": "إدارة المهام",
+    "TASK_MANAGEMENT": "إدارة المهام"
+  },
+  "MESSAGE": {
     "DELETION_CONFIRMATION": "هل انت متأكد انك تريد حذف المهمة؟"
   }
 }
