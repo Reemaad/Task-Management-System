@@ -88,9 +88,8 @@
   border: none;
   gap: 10px;
   padding-right: 15px;
-  color: #4F4F4F;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .logout-icon {
@@ -121,4 +120,25 @@
   font-size: 18px;
   font-weight: 700;
   color: var(--primary-color);
+}
+
+.popup {
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 42px;
+  width: 550px;
+  height: 175px;
+}
+
+.popup-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.button-container {
+  width: 150px;
 }

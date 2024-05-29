@@ -11,7 +11,7 @@ import { TranslateModule } from "@ngx-translate/core";
 export class PopUpComponent {
   @Input() title?: string;
 
-  @Output() close: EventEmitter<void> = new EventEmitter<void>();
+  @Output() closePopup: EventEmitter<void> = new EventEmitter<void>();
 
   @ViewChild('dialog') dialog!: ElementRef<HTMLDialogElement>;
 
@@ -19,8 +19,8 @@ export class PopUpComponent {
     this.dialog.nativeElement.showModal();
   }
 
-  closePopup(): void {
+  close(): void {
     this.dialog.nativeElement.close();
-    this.close.emit();
+    this.closePopup.emit();
   }
 }
