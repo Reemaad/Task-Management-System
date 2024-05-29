@@ -1,5 +1,6 @@
 <button 
 [ngClass]="{'primary-btn': type === ButtonType.PRIMARY ,'secondary-btn': type === ButtonType.SECONDARY}"
+[type]="ButtonRole[type]"
 (click)="emitEvent()">
-<ng-content></ng-content>
+    <ng-content></ng-content>
 </button>

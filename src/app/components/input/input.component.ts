@@ -27,7 +27,6 @@ export class InputComponent {
   @Input() label = "";
   @Input() id = "";
   @Input() type: InputType = InputType.text;
-  @Input() submitted: boolean = false;
   InputType = InputType;
 
   getErrorByType(validator: InputValidator): boolean {
@@ -35,7 +34,7 @@ export class InputComponent {
     return (
       control &&
       control?.errors &&
-      (control?.touched|| this.submitted) &&
+      (control?.touched || this.generalFormGroup.submitted) &&
       control?.errors?.[InputValidator[validator]]
     );
   }

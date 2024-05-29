@@ -24,7 +24,6 @@
                     [controlName]="'username'" 
                     [id]="'username'"
                     [errorMessages]="errorMessages['username']"
-                    [submitted]="submitted"
                     >
                     </custom-input>
 
@@ -35,14 +34,14 @@
                     [controlName]="'password'" 
                     [id]="'password'"
                     [errorMessages]="errorMessages['password']"
-                    [submitted]="submitted"
                     >
                     </custom-input>
                 </div>
 
                 <div class="login-button">
                     <custom-button 
-                    [type]="ButtonType.PRIMARY">
+                    [type]="ButtonType.PRIMARY"
+                    [role]="ButtonRole.submit">
                     {{'GENERAL.LOGIN' | translate}}
                     </custom-button>
                 </div>

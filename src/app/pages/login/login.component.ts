@@ -17,7 +17,8 @@ import { Router } from "@angular/router";
 import {
   USERNAME_PATTERN,
   PASSWORD_PATTERN,
-} from "../../../utils/validation-patterns";
+} from "../..//constants";
+import { ButtonRole } from "../../enums/button-role";
 
 @Component({
   selector: "login",
@@ -36,7 +37,7 @@ export class LoginComponent {
   loginForm!: FormGroup;
   InputType = InputType;
   ButtonType = ButtonType;
-  submitted = false;
+  ButtonRole = ButtonRole;
 
   constructor(private router: Router) {
     this.loginForm = new FormGroup({
@@ -80,7 +81,6 @@ export class LoginComponent {
   };
 
   onSubmit() {
-    this.submitted = true;
     if (this.loginForm.valid) {
       this.router.navigate(["tasks"]);
     }
