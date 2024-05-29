@@ -28,16 +28,19 @@
     "DESCRIPTION": "وصف المهمة",
     "DESCRIPTION_DATA": "مراجعة ملفات التصميم",
     "ADD_TASK": "اضافة مهمة",
-    "ADD_TASK_NEW": "إضافة مهمة جديدة"
+    "TASK_MANAGEMENT": "إدارة المهام",
+    "ADD_TASK_NEW": "إضافة مهمة جديدة",
+    "STATUSES":{
+      "OPTION1_LABEL": "اكتملت",
+      "OPTION2_LABEL": "قيد الإجراء",
+      "OPTION3_LABEL": "لم تبدأ بعد"
+    }
   },
   "ERROR_MESSAGE":{
   "REQUIRED": "هذا الحقل مطلوب"
   },
   "DROPDOWN": {
-    "PLACEHOLDER": "اختر",
-    "OPTION1_LABEL": "اكتملت",
-    "OPTION2_LABEL": "قيد الإجراء",
-    "OPTION3_LABEL": "لم تبدأ بعد"
+    "PLACEHOLDER": "اختر"
   },
   "MESSAGE": {
     "DELETION_CONFIRMATION": "هل انت متأكد انك تريد حذف المهمة؟",

@@ -23,6 +23,7 @@ export class TaskManagementPageComponent {
   taskIdToDelete!: number | null;
 
   @ViewChild(PopUpComponent) popup!: PopUpComponent;
+  @ViewChild(DropdownComponent) dropdownComponent!: DropdownComponent;
 
   columns: Column<Tasks>[] = [
     { label: "TASK.ID", property: "id" },
@@ -102,9 +103,9 @@ export class TaskManagementPageComponent {
     this.deleteTaskPopup.close();
   }
   statusList: DropdownItem[] = [
-    { value: "/assets/images/png/completed.png", label: "DROPDOWN.OPTION1_LABEL" },
-    { value: "/assets/images/png/inProgress.png", label: "DROPDOWN.OPTION2_LABEL" },
-    { value: "/assets/images/png/pending.png", label: "DROPDOWN.OPTION3_LABEL" },
+    { value: "/assets/images/png/completed.png", label: "TASK.STATUSES.OPTION1_LABEL" },
+    { value: "/assets/images/png/inProgress.png", label: "TASK.STATUSES.OPTION2_LABEL" },
+    { value: "/assets/images/png/pending.png", label: "TASK.STATUSES.OPTION3_LABEL" },
   ];
   constructor() {
     this.taskForm = new FormGroup({
@@ -125,7 +126,8 @@ export class TaskManagementPageComponent {
     this.popup.open();
   }
   closePopup() {
-    this.popup.closePopup();
+    this.popup.close();
+    this.dropdownComponent.resetDropdown();
     this.taskForm.reset();
   }
   onSelectedItemChanged(value: string) {
@@ -141,6 +143,7 @@ export class TaskManagementPageComponent {
       this.tasks.push(newTask);
       this.closePopup();
       this.taskForm.reset();
+      this.dropdownComponent.resetDropdown();
     } else {
       this.taskForm.markAllAsTouched();
     }
