@@ -71,8 +71,8 @@ export class TaskManagementPageComponent {
   ];
 
   handleTaskAction(columnNo: number, dataId: number): void {
-    const COLUMN_NO = 4;
-    if (columnNo === COLUMN_NO) {
+    const DELETION_COLUMN_NUMBER = 4;
+    if (columnNo === DELETION_COLUMN_NUMBER) {
       this.taskIdToDelete = dataId;
       this.popup.open();
     }
