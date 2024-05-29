@@ -3,7 +3,6 @@ import { ButtonComponent } from "../../components/button/button.component";
 import { TableComponent } from "../../components/table/table.component";
 import { TranslateModule } from "@ngx-translate/core";
 import { ButtonType } from "../../enums/button-type";
-import { Task } from "../../models/task";
 import { CustomType } from "../../enums/custom-type";
 import { Column } from "../../models/column-data";
 import { PopUpComponent } from "../../components/pop-up/pop-up.component";
@@ -29,6 +28,8 @@ export class TaskManagementPageComponent {
   ButtonType = ButtonType;
   ButtonRole = ButtonRole;
   taskIdToDelete!: number | null;
+  isEditMode = false;
+  currentTaskId?: number;
 
   @ViewChild('deleteTaskPopup') deleteTaskPopup!: PopUpComponent;
   @ViewChild('addEditPopup') addEditPopup!: PopUpComponent;
@@ -107,13 +108,19 @@ export class TaskManagementPageComponent {
     });
   }
 
-  handleTaskAction(columnNo: number, dataId: number): void {
+  handleTaskAction(columnIndex: number, dataId: number): void {
     const DELETION_COLUMN_NUMBER = 4;
-    if (columnNo === DELETION_COLUMN_NUMBER) {
+    const EDIT_COLUMN_INDEX = 3;
+
+    if (columnIndex === DELETION_COLUMN_NUMBER) {
       this.taskIdToDelete = dataId;
       this.deleteTaskPopup.open();
+    } else if (columnIndex === EDIT_COLUMN_INDEX) {
+      this.taskForm.reset();
+      this.openPopup(true, dataId);
     }
   }
+
 
   confirmDelete(): void {
     if (this.taskIdToDelete !== null) {
@@ -135,6 +142,25 @@ export class TaskManagementPageComponent {
     this.deleteTaskPopup.close();
   }
 
+  openPopup(isEditMode = false, taskId?: number) {
+    this.isEditMode = isEditMode;
+
+    if (isEditMode && taskId != null) {
+        this.currentTaskId = taskId;
+        const taskToEdit = this.tasks.find(task => task.id === taskId);
+        if (taskToEdit) {
+          this.taskForm.setValue({
+            status: taskToEdit.status,
+            description: taskToEdit.description,
+          });
+        }
+        this.resetForm(this.taskForm, this.formGroupDirective);
+      } else {
+      this.currentTaskId = undefined;
+      this.dropdownComponent.resetDropdown();
+    }
+    this.addEditPopup.open();
+  }
   openAddEditPopup() {
     this.addEditPopup.open();
   }
@@ -143,15 +169,27 @@ export class TaskManagementPageComponent {
     this.taskForm.get('status')?.setValue(value);
   }
 
-  addTask() {
+  saveTask() { // previsouly addTask() I have changed it to include add and edit
     if (this.taskForm.valid) {
-      const maxId = this.tasks.length > 0 ? Math.max(...this.tasks.map(task => task.id)) : 0;
-      const newTask: Task = {
-        id: maxId + 1,
-        status: this.taskForm.get('status')?.value,
-        description: this.taskForm.get('description')?.value
-      };
-      this.tasks.push(newTask);
+
+      if (this.isEditMode && this.currentTaskId !== undefined) { // edit task
+        const taskIndex = this.tasks.findIndex(t => t.id === this.currentTaskId);
+        if (taskIndex > -1) {
+          this.tasks[taskIndex] = {
+            id: this.currentTaskId,
+            status: this.taskForm.get('status')?.value,
+            description: this.taskForm.value.description,
+          };
+        }
+      } else {
+        const maxId = this.tasks.length > 0 ? Math.max(...this.tasks.map(task => task.id)) : 0;
+        const newTask: Tasks = { // add new task
+          id: maxId + 1,
+          status: this.taskForm.get('status')?.value,
+          description: this.taskForm.get('description,')?.value
+        };
+        this.tasks.push(newTask);
+      }
       this.addEditPopup.close();
       this.resetForm(this.taskForm, this.formGroupDirective);
     }

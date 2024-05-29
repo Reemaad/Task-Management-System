@@ -61,27 +61,27 @@
             [controlName]="'status'"
             [items]="statusList"
             [errorMessages]="errorMessages['status']"
-            (selectedItemChanged)="onSelectedItemChanged($event)"></custom-dropdown>
+            (selectedItemChanged)="onSelectedItemChanged($event)">
+            </custom-dropdown>
         </div>
 
             <div class="input-container">
-            <custom-input
-            [generalFormGroup]="form"
-            [isRequired]="true"
-            [label]="'TASK.DESCRIPTION'"
-            [type]="InputType.textarea"
-            [controlName]="'description'"
-            [id]="'description'"
-            [errorMessages]="errorMessages['description']">
-            </custom-input>
+                <custom-input
+                [generalFormGroup]="form"
+                [isRequired]="true"
+                [label]="'TASK.DESCRIPTION'"
+                [type]="InputType.textarea"
+                [controlName]="'description'"
+                [id]="'description'"
+                [errorMessages]="errorMessages['description']">
+                </custom-input>
             </div>
 
             <div class="popup-button-container">
                 <custom-button [type]="ButtonType.PRIMARY" [role]="ButtonRole.submit">
-                {{'GENERAL.ADD' | translate}}
+                    {{ isEditMode ? ('GENERAL.EDIT' | translate ) : 'GENERAL.ADD' | translate }}
                 </custom-button>
             </div>
-
         </form>
     </div>
 </popup>
