@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from "@angular/core";
 import { DropdownItem } from "../../models/dropdown-item";
 import { TranslateModule } from "@ngx-translate/core";
 import { ErrorMessage } from "../../models/error-message";
@@ -23,6 +23,8 @@ export class DropdownComponent {
   @Input({ required: true }) generalFormGroup!: FormGroupDirective;
   @Output() selectedItemChanged = new EventEmitter<string>();
 
+  @ViewChild('dropdown') dropdown!: ElementRef<HTMLSelectElement>;
+
   onSelect(value: string) {
     this.selectedItemChanged.emit(value);
   }
@@ -35,5 +37,9 @@ export class DropdownComponent {
       control?.touched &&
       control?.errors?.[InputValidator[validator]]
     );
+  }
+
+  resetDropdown() {
+    this.dropdown.nativeElement.value = "-1";
   }
 }

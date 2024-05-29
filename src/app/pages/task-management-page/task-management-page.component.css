@@ -15,13 +15,8 @@
     font-weight: 700;
     color: #4B4F54
 }
-
-.button-container {
-    width: 220px;
-}
-
 .delete-task-popup-container {
-    display: flex;
+  display: flex;
     flex-direction: column;
     align-items: center;
     padding-inline: 100px;
@@ -30,7 +25,26 @@
     gap: 45px;
 }
 
-.delete-task-popup-container .popup-buttons-container {
+.button-container {
+    width: 220px;
+}
+
+.popup-create-task {
+    display: flex;
+    padding-block: 18px;
+}
+
+.popup-form {
+    width: 100%;
+    height: 100%;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    gap: 45px;
+}
+
     display: flex;
     justify-content: space-between;
     gap: 45px;
