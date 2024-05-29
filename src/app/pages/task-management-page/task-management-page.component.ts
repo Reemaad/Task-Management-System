@@ -82,7 +82,7 @@ export class TaskManagementPageComponent {
     if (this.taskIdToDelete !== null) {
       this.deleteItem(this.taskIdToDelete);
       this.taskIdToDelete = null;
-      this.popup.closePopup();
+      this.popup.close();
     }
   }
 
@@ -95,6 +95,6 @@ export class TaskManagementPageComponent {
   }
 
   closePopup() {
-    this.popup.closePopup();
+    this.popup.close();
   }
 }
