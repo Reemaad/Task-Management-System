@@ -42,7 +42,7 @@
     "PLACEHOLDER": "اختر"
   },
   "MESSAGE": {
-    "LOGOUT_MESSAGE": "هل أنت متأكد أنك تريد تسجيل الخروج؟"
-    "DELETION_CONFIRMATION": "هل انت متأكد انك تريد حذف المهمة؟",
+    "LOGOUT_MESSAGE": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    "DELETION_CONFIRMATION": "هل انت متأكد انك تريد حذف المهمة؟"
   }
 }

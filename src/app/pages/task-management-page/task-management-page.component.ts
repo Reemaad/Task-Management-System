@@ -144,7 +144,7 @@ export class TaskManagementPageComponent {
 
   openPopup(isEditMode = false, taskId?: number) {
     this.isEditMode = isEditMode;
-
+    this.taskForm.reset();
     if (isEditMode && taskId != null) {
         this.currentTaskId = taskId;
         const taskToEdit = this.tasks.find(task => task.id === taskId);
@@ -171,7 +171,6 @@ export class TaskManagementPageComponent {
 
   saveTask() { 
     if (this.taskForm.valid) {
-
       if (this.isEditMode && this.currentTaskId !== undefined) { // edit task
         const taskIndex = this.tasks.findIndex(t => t.id === this.currentTaskId);
         if (taskIndex > -1) {
