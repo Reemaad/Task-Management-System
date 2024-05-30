@@ -20,7 +20,7 @@
     width: 220px;
 }
 
-.popup-container {
+.delete-task-popup-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,12 +30,12 @@
     gap: 45px;
 }
 
-.popup-buttons-container {
+.delete-task-popup-container .popup-buttons-container {
     display: flex;
     justify-content: space-between;
-    gap: 50px;
+    gap: 45px;
 }
 
 .confirm-button {
-    width: 150px;
+    width: 140px;
 }

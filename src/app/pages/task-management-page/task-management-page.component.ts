@@ -17,7 +17,7 @@ import { PopUpComponent } from "../../components/pop-up/pop-up.component";
 })
 export class TaskManagementPageComponent {
   ButtonType = ButtonType;
-  @ViewChild(PopUpComponent) popup!: PopUpComponent;
+  @ViewChild(PopUpComponent) deleteTaskPopup!: PopUpComponent;
   taskIdToDelete!: number | null;
 
   columns: Column<Tasks>[] = [
@@ -74,7 +74,7 @@ export class TaskManagementPageComponent {
     const DELETION_COLUMN_NUMBER = 4;
     if (columnNo === DELETION_COLUMN_NUMBER) {
       this.taskIdToDelete = dataId;
-      this.popup.open();
+      this.deleteTaskPopup.open();
     }
   }
 
@@ -82,7 +82,7 @@ export class TaskManagementPageComponent {
     if (this.taskIdToDelete !== null) {
       this.deleteItem(this.taskIdToDelete);
       this.taskIdToDelete = null;
-      this.popup.close();
+      this.deleteTaskPopup.close();
     }
   }
 
@@ -95,6 +95,6 @@ export class TaskManagementPageComponent {
   }
 
   closePopup() {
-    this.popup.close();
+    this.deleteTaskPopup.close();
   }
 }

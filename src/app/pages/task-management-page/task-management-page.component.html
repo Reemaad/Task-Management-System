@@ -19,8 +19,8 @@
         (action)="handleTaskAction($event[0],$event[1])">
         </custom-table>
             
-        <popup #popup (close)="closePopup()">
-            <div class="popup-container">
+        <popup #deleteTaskPopup (close)="closePopup()">
+            <div class="delete-task-popup-container">
                 <span class="popup-message">{{'MESSAGE.DELETION_CONFIRMATION' | translate}}</span>
                 <div class="popup-buttons-container">
 

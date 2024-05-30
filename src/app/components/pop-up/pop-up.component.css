@@ -26,7 +26,7 @@
     display: flex;
     justify-content: space-between;
     align-items: end;
-    padding-right: 22px;
+    padding-right: 28px;
 }
 
 .popup-title {
@@ -42,6 +42,6 @@
 }
 
 .body {
-    padding-inline: 22px;
-    font-size: 22px;
+    padding-inline: 28px;
+    font-size: 21px;
 }
