@@ -22,7 +22,7 @@ export class TaskManagementPageComponent {
   @ViewChild(PopUpComponent) deleteTaskPopup!: PopUpComponent;
   taskIdToDelete!: number | null;
 
-  @ViewChild(PopUpComponent) popup!: PopUpComponent;
+  @ViewChild('addEditPopup') addEditPopup!: PopUpComponent;
   @ViewChild(DropdownComponent) dropdownComponent!: DropdownComponent;
 
   columns: Column<Tasks>[] = [
@@ -123,10 +123,10 @@ export class TaskManagementPageComponent {
     description: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }]
   };
   openPopup() {
-    this.popup.open();
+    this.addEditPopup.open();
   }
   closePopup() {
-    this.popup.close();
+    this.addEditPopup.close();
     this.dropdownComponent.resetDropdown();
     this.taskForm.reset();
   }

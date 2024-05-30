@@ -30,11 +30,11 @@
     width: 220px;
 }
 
-.popup-create-task {
+.addEdit-popup-container {
     display: flex;
     padding-block: 18px;
 }
-
+                
 .popup-form {
     width: 100%;
     height: 100%;
@@ -60,6 +60,6 @@
     font-size: 17px;
 }
 
-.popup-button-container {
+.addEdit-popup-container .popup-button-container {
     padding-bottom: 22px;
 }
