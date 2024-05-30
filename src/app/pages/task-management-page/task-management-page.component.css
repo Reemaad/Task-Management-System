@@ -15,6 +15,7 @@
     font-weight: 700;
     color: #4B4F54
 }
+
 .delete-task-popup-container {
   display: flex;
     flex-direction: column;
@@ -40,9 +41,8 @@
     direction: rtl;
     display: flex;
     flex-direction: column;
-    padding-bottom: 40px;
-    padding-top: 10px;
-    gap: 45px;
+    justify-content: flex-start;
+    gap: 35px;
 }
 
     display: flex;
@@ -52,4 +52,14 @@
 
 .confirm-button {
     width: 140px;
+}
+
+.input-container {
+    height: 200px;
+    width: 490px;
+    font-size: 17px;
+}
+
+.popup-button-container {
+    padding-bottom: 22px;
 }
