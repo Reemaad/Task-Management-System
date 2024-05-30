@@ -24,6 +24,7 @@
     "TASK_MANAGEMENT": "إدارة المهام"
   },
   "MESSAGE": {
-    "DELETION_CONFIRMATION": "هل انت متأكد انك تريد حذف المهمة؟"
+    "DELETION_CONFIRMATION": "هل انت متأكد انك تريد حذف المهمة؟",
+    "LOGOUT_MESSAGE": "هل أنت متأكد أنك تريد تسجيل الخروج؟"
   }
 }
