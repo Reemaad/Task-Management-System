@@ -43,8 +43,10 @@
             </div>
         </popup>
 </div>
-<popup #popup (close)="closePopup()" [title]= "'TASK.ADD_TASK_NEW'">
-    <div class="popup-create-task">
+
+
+<popup #addEditPopup (close)="closePopup()" [title]= "'TASK.ADD_TASK_NEW'">
+    <div class="addEdit-popup-container">
         <form #form="ngForm" [formGroup]="taskForm" class="popup-form">
 
         <div class="dropdown-container">
