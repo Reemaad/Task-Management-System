@@ -126,9 +126,9 @@ export class TaskManagementPageComponent {
     this.addEditPopup.open();
   }
   closePopup() {
+    this.taskForm.reset();
     this.addEditPopup.close();
     this.dropdownComponent.resetDropdown();
-    this.taskForm.reset();
   }
   onSelectedItemChanged(value: string) {
     this.taskForm.get('status')?.setValue(value);
