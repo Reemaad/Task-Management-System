@@ -19,6 +19,7 @@
     font-weight: 700;
     color: #4B4F54
 }
+
 .delete-task-popup-container {
   display: flex;
     flex-direction: column;
@@ -44,9 +45,8 @@
     direction: rtl;
     display: flex;
     flex-direction: column;
-    padding-bottom: 40px;
-    padding-top: 10px;
-    gap: 45px;
+    justify-content: flex-start;
+    gap: 35px;
 }
 
     display: flex;
