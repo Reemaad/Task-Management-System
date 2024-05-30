@@ -7,21 +7,28 @@ import { Tasks } from "../../models/tasks";
 import { CustomType } from "../../enums/custom-type";
 import { Column } from "../../models/column-data";
 import { PopUpComponent } from "../../components/pop-up/pop-up.component";
+import { DropdownItem } from "../../models/dropdown-item";
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { ErrorMessage } from "../../models/error-message";
+import { InputValidator } from "../../enums/input-validator";
+import { DropdownComponent } from "../../components/dropdown/dropdown.component";
+import { InputType } from "../../enums/input-type";
+import { InputComponent } from "../../components/input/input.component";
 
 @Component({
-  selector: "task-management-page",
-  standalone: true,
-  imports: [ButtonComponent, TableComponent, TranslateModule, PopUpComponent],
-  templateUrl: "./task-management-page.component.html",
-  styleUrl: "./task-management-page.component.css",
+    selector: "task-management-page",
+    standalone: true,
+    templateUrl: "./task-management-page.component.html",
+    styleUrl: "./task-management-page.component.css",
+    imports: [ButtonComponent, TableComponent, TranslateModule, PopUpComponent, DropdownComponent, InputComponent, ReactiveFormsModule]
 })
 export class TaskManagementPageComponent {
   taskForm!: FormGroup;
   InputType = InputType;
   ButtonType = ButtonType;
-  @ViewChild(PopUpComponent) deleteTaskPopup!: PopUpComponent;
   taskIdToDelete!: number | null;
 
+  @ViewChild('deleteTaskPopup') deleteTaskPopup!: PopUpComponent;
   @ViewChild('addEditPopup') addEditPopup!: PopUpComponent;
   @ViewChild(DropdownComponent) dropdownComponent!: DropdownComponent;
 
@@ -99,14 +106,12 @@ export class TaskManagementPageComponent {
     }
   }
 
-  closePopup() {
-    this.deleteTaskPopup.close();
-  }
   statusList: DropdownItem[] = [
     { value: "/assets/images/png/completed.png", label: "TASK.STATUSES.OPTION1_LABEL" },
     { value: "/assets/images/png/inProgress.png", label: "TASK.STATUSES.OPTION2_LABEL" },
     { value: "/assets/images/png/pending.png", label: "TASK.STATUSES.OPTION3_LABEL" },
   ];
+
   constructor() {
     this.taskForm = new FormGroup({
       status: new FormControl("", [
@@ -122,17 +127,22 @@ export class TaskManagementPageComponent {
     status: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }],
     description: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }]
   };
+
   openPopup() {
     this.addEditPopup.open();
   }
+
   closePopup() {
     this.taskForm.reset();
-    this.addEditPopup.close();
     this.dropdownComponent.resetDropdown();
+    this.addEditPopup.close();
+    this.deleteTaskPopup.close();
   }
+
   onSelectedItemChanged(value: string) {
     this.taskForm.get('status')?.setValue(value);
   }
+
   addTask() {
     if (this.taskForm.valid) {
       const newTask: Tasks = {
