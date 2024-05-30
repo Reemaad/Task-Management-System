@@ -169,7 +169,7 @@ export class TaskManagementPageComponent {
     this.taskForm.get('status')?.setValue(value);
   }
 
-  saveTask() { // previsouly addTask() I have changed it to include add and edit
+  saveTask() { 
     if (this.taskForm.valid) {
 
       if (this.isEditMode && this.currentTaskId !== undefined) { // edit task
