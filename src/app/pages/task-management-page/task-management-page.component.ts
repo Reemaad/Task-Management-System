@@ -129,6 +129,8 @@ export class TaskManagementPageComponent {
   };
 
   openPopup() {
+    this.dropdownComponent.resetDropdown();
+    this.taskForm.reset();
     this.addEditPopup.open();
   }
 
