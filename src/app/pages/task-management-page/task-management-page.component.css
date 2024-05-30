@@ -19,3 +19,23 @@
 .button-container {
     width: 220px;
 }
+
+.delete-task-popup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 100px;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    gap: 45px;
+}
+
+.delete-task-popup-container .popup-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 45px;
+}
+
+.confirm-button {
+    width: 140px;
+}

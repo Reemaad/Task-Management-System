@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { ButtonComponent } from "../../components/button/button.component";
 import { TableComponent } from "../../components/table/table.component";
 import { TranslateModule } from "@ngx-translate/core";
@@ -6,16 +6,19 @@ import { ButtonType } from "../../enums/button-type";
 import { Tasks } from "../../models/tasks";
 import { CustomType } from "../../enums/custom-type";
 import { Column } from "../../models/column-data";
+import { PopUpComponent } from "../../components/pop-up/pop-up.component";
 
 @Component({
   selector: "task-management-page",
   standalone: true,
-  imports: [ButtonComponent, TableComponent, TranslateModule],
+  imports: [ButtonComponent, TableComponent, TranslateModule, PopUpComponent],
   templateUrl: "./task-management-page.component.html",
   styleUrl: "./task-management-page.component.css",
 })
 export class TaskManagementPageComponent {
   ButtonType = ButtonType;
+  @ViewChild(PopUpComponent) deleteTaskPopup!: PopUpComponent;
+  taskIdToDelete!: number | null;
 
   columns: Column<Tasks>[] = [
     { label: "TASK.ID", property: "id" },
@@ -66,4 +69,32 @@ export class TaskManagementPageComponent {
       description: "TASK.DESCRIPTION_DATA",
     },
   ];
+
+  handleTaskAction(columnNo: number, dataId: number): void {
+    const DELETION_COLUMN_NUMBER = 4;
+    if (columnNo === DELETION_COLUMN_NUMBER) {
+      this.taskIdToDelete = dataId;
+      this.deleteTaskPopup.open();
+    }
+  }
+
+  confirmDelete(): void {
+    if (this.taskIdToDelete !== null) {
+      this.deleteItem(this.taskIdToDelete);
+      this.taskIdToDelete = null;
+      this.deleteTaskPopup.close();
+    }
+  }
+
+  deleteItem(id: number): void {
+    const index = this.tasks.findIndex((item) => item.id === id);
+
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
+    }
+  }
+
+  closePopup() {
+    this.deleteTaskPopup.close();
+  }
 }
