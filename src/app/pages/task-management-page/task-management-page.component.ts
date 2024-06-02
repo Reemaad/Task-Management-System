@@ -30,6 +30,7 @@ export class TaskManagementPageComponent {
   taskIdToDelete!: number | null;
   isEditMode = false;
   currentTaskId?: number;
+  title!: string;
 
   @ViewChild('deleteTaskPopup') deleteTaskPopup!: PopUpComponent;
   @ViewChild('addEditPopup') addEditPopup!: PopUpComponent;
@@ -44,7 +45,10 @@ export class TaskManagementPageComponent {
       showCustom: true,
       customType: CustomType.IMAGE,
     },
-    { label: "TASK.DESCRIPTION", property: "description" },
+    { 
+      label: "TASK.DESCRIPTION", 
+      property: "description" 
+    },
     {
       label: "",
       property: "id",
@@ -116,11 +120,9 @@ export class TaskManagementPageComponent {
       this.taskIdToDelete = dataId;
       this.deleteTaskPopup.open();
     } else if (columnIndex === EDIT_COLUMN_INDEX) {
-      this.taskForm.reset();
-      this.openPopup(true, dataId);
+      this.openEditPopup(true, dataId);
     }
   }
-
 
   confirmDelete(): void {
     if (this.taskIdToDelete !== null) {
@@ -142,26 +144,28 @@ export class TaskManagementPageComponent {
     this.deleteTaskPopup.close();
   }
 
-  openPopup(isEditMode = false, taskId?: number) {
+  openEditPopup(isEditMode = false, taskId?: number) {
     this.isEditMode = isEditMode;
-    this.taskForm.reset();
+    this.title = this.isEditMode ? 'TASK.EDIT_TASK' : 'TASK.ADD_TASK_NEW';
+    this.resetForm(this.taskForm, this.formGroupDirective);
     if (isEditMode && taskId != null) {
-        this.currentTaskId = taskId;
-        const taskToEdit = this.tasks.find(task => task.id === taskId);
-        if (taskToEdit) {
-          this.taskForm.setValue({
-            status: taskToEdit.status,
-            description: taskToEdit.description,
-          });
-        }
-        this.resetForm(this.taskForm, this.formGroupDirective);
-      } else {
+      this.currentTaskId = taskId;
+      const taskToEdit = this.tasks.find(task => task.id === taskId);
+      if (taskToEdit) {
+        this.taskForm.setValue({
+          status: taskToEdit.status,
+          description: taskToEdit.description,
+        });
+      }
+    } else {
       this.currentTaskId = undefined;
-      this.dropdownComponent.resetDropdown();
     }
     this.addEditPopup.open();
   }
-  openAddEditPopup() {
+  
+  openAddPopup() {
+    this.isEditMode = false;
+    this.title = this.isEditMode ? 'TASK.EDIT_TASK' : 'TASK.ADD_TASK_NEW';
     this.addEditPopup.open();
   }
 
@@ -189,6 +193,7 @@ export class TaskManagementPageComponent {
         };
         this.tasks.push(newTask);
       }
+      
       this.addEditPopup.close();
       this.resetForm(this.taskForm, this.formGroupDirective);
     }

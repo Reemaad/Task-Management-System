@@ -36,7 +36,7 @@
       "COMPLETED": "اكتملت",
       "IN_PROGRESS": "قيد الإجراء",
       "NOT_STARTED": "لم تبدأ بعد"
-       }
+    }
   },
   "DROPDOWN": {
     "PLACEHOLDER": "اختر"

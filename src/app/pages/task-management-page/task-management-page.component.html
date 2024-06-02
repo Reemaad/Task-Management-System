@@ -11,6 +11,10 @@
 
             <span class="title">{{'TASK.TASK_MANAGEMENT' | translate}}</span>
 
+        <div class="button-container">
+            <custom-button [type]="ButtonType.SECONDARY" (click)="openAddPopup()">
+                {{'TASK.ADD_TASK' | translate}}
+            </custom-button>
         </div>
 
             <custom-table 
@@ -48,9 +52,9 @@
     </div>
 </popup>
 
-<popup #addEditPopup (closePopup)="resetForm(this.taskForm, this.form)" [title]= "'TASK.ADD_TASK_NEW'">
+<popup #addEditPopup (closePopup)="resetForm(this.taskForm, this.form)" [title]= "title">
     <div class="addEdit-popup-container">
-        <form #form="ngForm" [formGroup]="taskForm" class="popup-form" (ngSubmit)="addTask()">
+        <form #form="ngForm" [formGroup]="taskForm" class="popup-form" (ngSubmit)="saveTask()">
 
         <div class="dropdown-container">
             <custom-dropdown
