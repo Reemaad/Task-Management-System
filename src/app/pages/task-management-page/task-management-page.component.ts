@@ -82,6 +82,28 @@ export class TaskManagementPageComponent {
     },
   ];
 
+  statusList: DropdownItem[] = [
+    { value: "/assets/images/png/completed.png", label: "TASK.STATUSES.OPTION1_LABEL" },
+    { value: "/assets/images/png/inProgress.png", label: "TASK.STATUSES.OPTION2_LABEL" },
+    { value: "/assets/images/png/pending.png", label: "TASK.STATUSES.OPTION3_LABEL" },
+  ];
+
+  errorMessages: { [type: string]: ErrorMessage[] } = {
+    status: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }],
+    description: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }]
+  };
+  
+  constructor() {
+    this.taskForm = new FormGroup({
+      status: new FormControl("", [
+        Validators.required,
+      ]),
+      description: new FormControl("", [
+        Validators.required,
+      ]),
+    });
+  }
+
   handleTaskAction(columnNo: number, dataId: number): void {
     const DELETION_COLUMN_NUMBER = 4;
     if (columnNo === DELETION_COLUMN_NUMBER) {
@@ -106,28 +128,6 @@ export class TaskManagementPageComponent {
     }
   }
 
-  statusList: DropdownItem[] = [
-    { value: "/assets/images/png/completed.png", label: "TASK.STATUSES.OPTION1_LABEL" },
-    { value: "/assets/images/png/inProgress.png", label: "TASK.STATUSES.OPTION2_LABEL" },
-    { value: "/assets/images/png/pending.png", label: "TASK.STATUSES.OPTION3_LABEL" },
-  ];
-
-  constructor() {
-    this.taskForm = new FormGroup({
-      status: new FormControl("", [
-        Validators.required,
-      ]),
-      description: new FormControl("", [
-        Validators.required,
-      ]),
-    });
-  }
-
-  errorMessages: { [type: string]: ErrorMessage[] } = {
-    status: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }],
-    description: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }]
-  };
-
   openPopup() {
     this.dropdownComponent.resetDropdown();
     this.taskForm.reset();
@@ -135,8 +135,6 @@ export class TaskManagementPageComponent {
   }
 
   closePopup() {
-    this.taskForm.reset();
-    this.dropdownComponent.resetDropdown();
     this.addEditPopup.close();
     this.deleteTaskPopup.close();
   }
@@ -154,8 +152,6 @@ export class TaskManagementPageComponent {
       };
       this.tasks.push(newTask);
       this.closePopup();
-      this.taskForm.reset();
-      this.dropdownComponent.resetDropdown();
     } else {
       this.taskForm.markAllAsTouched();
     }
