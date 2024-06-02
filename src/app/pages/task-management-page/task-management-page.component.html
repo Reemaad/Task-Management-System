@@ -19,7 +19,7 @@
         (action)="handleTaskAction($event[0],$event[1])">
         </custom-table>
             
-        <popup #deleteTaskPopup (close)="closePopup()">
+        <popup #deleteTaskPopup>
             <div class="delete-task-popup-container">
                 <span class="popup-message">{{'MESSAGE.DELETION_CONFIRMATION' | translate}}</span>
                 <div class="popup-buttons-container">
@@ -35,7 +35,7 @@
                     <div class="confirm-button">
                         <custom-button 
                         [type]="ButtonType.SECONDARY" 
-                        (click)="closePopup()">
+                        (click)="closeDelete()">
                         {{'GENERAL.NO' | translate}}
                         </custom-button>
                     </div>
@@ -47,7 +47,7 @@
 </div>
 
 
-<popup #addEditPopup (close)="closePopup()" [title]= "'TASK.ADD_TASK_NEW'">
+<popup #addEditPopup (closePopup) = "closePopup()" [title]= "'TASK.ADD_TASK_NEW'">
     <div class="addEdit-popup-container">
         <form #form="ngForm" [formGroup]="taskForm" class="popup-form" (ngSubmit)="addTask()">
 

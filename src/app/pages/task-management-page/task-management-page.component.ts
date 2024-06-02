@@ -17,11 +17,11 @@ import { InputComponent } from "../../components/input/input.component";
 import { ButtonRole } from "../../enums/button-role";
 
 @Component({
-    selector: "task-management-page",
-    standalone: true,
-    templateUrl: "./task-management-page.component.html",
-    styleUrl: "./task-management-page.component.css",
-    imports: [ButtonComponent, TableComponent, TranslateModule, PopUpComponent, DropdownComponent, InputComponent, ReactiveFormsModule]
+  selector: "task-management-page",
+  standalone: true,
+  templateUrl: "./task-management-page.component.html",
+  styleUrl: "./task-management-page.component.css",
+  imports: [ButtonComponent, TableComponent, TranslateModule, PopUpComponent, DropdownComponent, InputComponent, ReactiveFormsModule]
 })
 export class TaskManagementPageComponent {
   taskForm!: FormGroup;
@@ -94,7 +94,7 @@ export class TaskManagementPageComponent {
     status: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }],
     description: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }]
   };
-  
+
   constructor() {
     this.taskForm = new FormGroup({
       status: new FormControl("", [
@@ -130,16 +130,17 @@ export class TaskManagementPageComponent {
     }
   }
 
+  closeDelete() {
+    this.deleteTaskPopup.close();
+  }
+
   openPopup() {
     this.dropdownComponent.resetDropdown();
-    this.taskForm.reset();
-    this.taskForm.markAsUntouched;
     this.addEditPopup.open();
   }
 
   closePopup() {
-    this.addEditPopup.close();
-    this.deleteTaskPopup.close();
+    this.resetForm(this.taskForm);
   }
 
   onSelectedItemChanged(value: string) {
@@ -151,11 +152,19 @@ export class TaskManagementPageComponent {
       const newTask: Tasks = {
         id: this.tasks.length + 1,
         status: this.taskForm.get('status')?.value,
-        description: this.taskForm.value.description
+        description: this.taskForm.get('description')?.value
       };
       this.tasks.push(newTask);
+      this.addEditPopup.close();
       this.closePopup();
     }
+  }
+
+  resetForm(form: FormGroup) {
+    form.reset();
+    form.markAsUntouched;
+    form.get('status')?.setErrors(null);
+    form.get('description')?.setErrors(null);
   }
 
 }
