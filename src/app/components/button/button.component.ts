@@ -13,7 +13,7 @@ import { ButtonRole } from "../../enums/button-role";
 })
 export class ButtonComponent {
   @Input() type: ButtonType = ButtonType.PRIMARY;
-  @Input() role: ButtonRole = ButtonRole.submit;
+  @Input() role: ButtonRole = ButtonRole.button;
   @Output() onClick = new EventEmitter();
   ButtonType = ButtonType;
   ButtonRole = ButtonRole;

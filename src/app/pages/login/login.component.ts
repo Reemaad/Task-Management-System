@@ -17,7 +17,7 @@ import { Router } from "@angular/router";
 import {
   USERNAME_PATTERN,
   PASSWORD_PATTERN,
-} from "../..//constants";
+} from "../../app.constants";
 import { ButtonRole } from "../../enums/button-role";
 
 @Component({
