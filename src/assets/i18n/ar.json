@@ -36,9 +36,6 @@
       "NOT_STARTED": "لم تبدأ بعد"
     }
   },
-  "ERROR_MESSAGE":{
-  "REQUIRED": "هذا الحقل مطلوب"
-  },
   "DROPDOWN": {
     "PLACEHOLDER": "اختر"
   },
