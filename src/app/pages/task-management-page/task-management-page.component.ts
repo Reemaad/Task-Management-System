@@ -130,17 +130,12 @@ export class TaskManagementPageComponent {
     }
   }
 
-  closeDelete() {
+  closeDeletePopup() {
     this.deleteTaskPopup.close();
   }
 
-  openPopup() {
-    this.dropdownComponent.resetDropdown();
+  openAddEditPopup() {
     this.addEditPopup.open();
-  }
-
-  closePopup() {
-    this.resetForm(this.taskForm);
   }
 
   onSelectedItemChanged(value: string) {
@@ -156,15 +151,16 @@ export class TaskManagementPageComponent {
       };
       this.tasks.push(newTask);
       this.addEditPopup.close();
-      this.closePopup();
+      this.resetForm(this.taskForm);
     }
   }
 
   resetForm(form: FormGroup) {
     form.reset();
-    form.markAsUntouched;
+    form.markAsUntouched();
     form.get('status')?.setErrors(null);
     form.get('description')?.setErrors(null);
+    this.dropdownComponent.resetDropdown();
   }
 
 }

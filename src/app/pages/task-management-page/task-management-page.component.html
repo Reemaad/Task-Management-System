@@ -4,7 +4,7 @@
     <div class="task-header-container">
 
         <div class="button-container">
-            <custom-button [type]="ButtonType.SECONDARY" (click)="openPopup()">
+            <custom-button [type]="ButtonType.SECONDARY" (click)="openAddEditPopup()">
                 {{'TASK.ADD_TASK' | translate}}
             </custom-button>
         </div>
@@ -35,7 +35,7 @@
                     <div class="confirm-button">
                         <custom-button 
                         [type]="ButtonType.SECONDARY" 
-                        (click)="closeDelete()">
+                        (click)="closeDeletePopup()">
                         {{'GENERAL.NO' | translate}}
                         </custom-button>
                     </div>
@@ -47,7 +47,7 @@
 </div>
 
 
-<popup #addEditPopup (closePopup) = "closePopup()" [title]= "'TASK.ADD_TASK_NEW'">
+<popup #addEditPopup (closePopup)="resetForm(this.taskForm)" [title]= "'TASK.ADD_TASK_NEW'">
     <div class="addEdit-popup-container">
         <form #form="ngForm" [formGroup]="taskForm" class="popup-form" (ngSubmit)="addTask()">
 
