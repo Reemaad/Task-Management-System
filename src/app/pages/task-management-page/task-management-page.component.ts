@@ -8,7 +8,7 @@ import { CustomType } from "../../enums/custom-type";
 import { Column } from "../../models/column-data";
 import { PopUpComponent } from "../../components/pop-up/pop-up.component";
 import { DropdownItem } from "../../models/dropdown-item";
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { FormControl, FormGroup, FormGroupDirective, NgForm, ReactiveFormsModule, Validators } from "@angular/forms";
 import { ErrorMessage } from "../../models/error-message";
 import { InputValidator } from "../../enums/input-validator";
 import { DropdownComponent } from "../../components/dropdown/dropdown.component";
@@ -32,7 +32,8 @@ export class TaskManagementPageComponent {
 
   @ViewChild('deleteTaskPopup') deleteTaskPopup!: PopUpComponent;
   @ViewChild('addEditPopup') addEditPopup!: PopUpComponent;
-  @ViewChild(DropdownComponent) dropdownComponent!: DropdownComponent;
+  @ViewChild(FormGroupDirective) formGroupDirective!: FormGroupDirective;
+    @ViewChild(DropdownComponent) dropdownComponent!: DropdownComponent;
 
   columns: Column<Tasks>[] = [
     { label: "TASK.ID", property: "id" },
@@ -151,16 +152,16 @@ export class TaskManagementPageComponent {
       };
       this.tasks.push(newTask);
       this.addEditPopup.close();
-      this.resetForm(this.taskForm);
+      this.resetForm(this.taskForm, this.formGroupDirective);
     }
   }
 
-  resetForm(form: FormGroup) {
-    form.reset();
-    form.markAsUntouched();
-    form.get('status')?.setErrors(null);
-    form.get('description')?.setErrors(null);
+  resetForm(form: FormGroup, formDirective: FormGroupDirective) {
     this.dropdownComponent.resetDropdown();
+    setTimeout(() => {
+      formDirective.resetForm();
+      form.reset();
+  }, 0);
   }
 
 }

@@ -47,7 +47,7 @@
 </div>
 
 
-<popup #addEditPopup (closePopup)="resetForm(this.taskForm)" [title]= "'TASK.ADD_TASK_NEW'">
+<popup #addEditPopup (closePopup)="resetForm(this.taskForm, this.form)" [title]= "'TASK.ADD_TASK_NEW'">
     <div class="addEdit-popup-container">
         <form #form="ngForm" [formGroup]="taskForm" class="popup-form" (ngSubmit)="addTask()">
 
