@@ -34,7 +34,7 @@ export class InputComponent {
     return (
       control &&
       control?.errors &&
-      control?.touched &&
+      (control?.touched || this.generalFormGroup.submitted) &&
       control?.errors?.[InputValidator[validator]]
     );
   }
