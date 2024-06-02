@@ -31,9 +31,9 @@
     "TASK_MANAGEMENT": "إدارة المهام",
     "ADD_TASK_NEW": "إضافة مهمة جديدة",
     "STATUSES":{
-      "OPTION1_LABEL": "اكتملت",
-      "OPTION2_LABEL": "قيد الإجراء",
-      "OPTION3_LABEL": "لم تبدأ بعد"
+      "COMPLETED": "اكتملت",
+      "IN_PROGRESS": "قيد الإجراء",
+      "NOT_STARTED": "لم تبدأ بعد"
     }
   },
   "ERROR_MESSAGE":{

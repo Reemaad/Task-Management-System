@@ -14,6 +14,7 @@ import { InputValidator } from "../../enums/input-validator";
 import { DropdownComponent } from "../../components/dropdown/dropdown.component";
 import { InputType } from "../../enums/input-type";
 import { InputComponent } from "../../components/input/input.component";
+import { ButtonRole } from "../../enums/button-role";
 
 @Component({
     selector: "task-management-page",
@@ -26,6 +27,7 @@ export class TaskManagementPageComponent {
   taskForm!: FormGroup;
   InputType = InputType;
   ButtonType = ButtonType;
+  ButtonRole = ButtonRole;
   taskIdToDelete!: number | null;
 
   @ViewChild('deleteTaskPopup') deleteTaskPopup!: PopUpComponent;
@@ -62,7 +64,7 @@ export class TaskManagementPageComponent {
   tasks: Tasks[] = [
     {
       id: 1,
-      status: "/assets/images/png/pending.png",
+      status: "/assets/images/png/notStarted.png",
       description: "TASK.DESCRIPTION_DATA",
     },
     {
@@ -83,9 +85,9 @@ export class TaskManagementPageComponent {
   ];
 
   statusList: DropdownItem[] = [
-    { value: "/assets/images/png/completed.png", label: "TASK.STATUSES.OPTION1_LABEL" },
-    { value: "/assets/images/png/inProgress.png", label: "TASK.STATUSES.OPTION2_LABEL" },
-    { value: "/assets/images/png/pending.png", label: "TASK.STATUSES.OPTION3_LABEL" },
+    { value: "/assets/images/png/completed.png", label: "TASK.STATUSES.COMPLETED" },
+    { value: "/assets/images/png/inProgress.png", label: "TASK.STATUSES.IN_PROGRESS" },
+    { value: "/assets/images/png/notStarted.png", label: "TASK.STATUSES.NOT_STARTED" },
   ];
 
   errorMessages: { [type: string]: ErrorMessage[] } = {
@@ -131,6 +133,7 @@ export class TaskManagementPageComponent {
   openPopup() {
     this.dropdownComponent.resetDropdown();
     this.taskForm.reset();
+    this.taskForm.markAsUntouched;
     this.addEditPopup.open();
   }
 
@@ -152,8 +155,6 @@ export class TaskManagementPageComponent {
       };
       this.tasks.push(newTask);
       this.closePopup();
-    } else {
-      this.taskForm.markAllAsTouched();
     }
   }
 

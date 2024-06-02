@@ -49,7 +49,7 @@
 
 <popup #addEditPopup (close)="closePopup()" [title]= "'TASK.ADD_TASK_NEW'">
     <div class="addEdit-popup-container">
-        <form #form="ngForm" [formGroup]="taskForm" class="popup-form">
+        <form #form="ngForm" [formGroup]="taskForm" class="popup-form" (ngSubmit)="addTask()">
 
         <div class="dropdown-container">
             <custom-dropdown
@@ -76,8 +76,9 @@
             </div>
 
             <div class="popup-button-container">
-                <custom-button [type]="ButtonType.PRIMARY" (click)="addTask()">{{'GENERAL.ADD' |
-                    translate}}</custom-button>
+                <custom-button [type]="ButtonType.PRIMARY" [role]="ButtonRole.submit">
+                {{'GENERAL.ADD' | translate}}
+                </custom-button>
             </div>
 
         </form>
