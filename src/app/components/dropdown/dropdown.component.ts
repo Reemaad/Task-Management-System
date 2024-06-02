@@ -41,7 +41,5 @@ export class DropdownComponent {
 
   resetDropdown() {
     this.dropdown.nativeElement.value = "-1";
-    this.generalFormGroup.form.get(this.controlName)?.reset;
-    this.generalFormGroup.form.get(this.controlName)?.updateValueAndValidity;
   }
 }
