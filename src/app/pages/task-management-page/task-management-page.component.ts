@@ -146,7 +146,7 @@ export class TaskManagementPageComponent {
   addTask() {
     if (this.taskForm.valid) {
       const maxId = this.tasks.length > 0 ? Math.max(...this.tasks.map(task => task.id)) : 0;
-      const newTask: Tasks = {
+      const newTask: Task = {
         id: maxId + 1,
         status: this.taskForm.get('status')?.value,
         description: this.taskForm.get('description')?.value
