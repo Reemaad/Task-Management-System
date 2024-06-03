@@ -31,7 +31,6 @@ export class TaskManagementPageComponent {
   taskIdToDelete!: number | null;
   isEditMode = false;
   currentTaskId?: number;
-  title!: string;
 
   @ViewChild('deleteTaskPopup') deleteTaskPopup!: PopUpComponent;
   @ViewChild('addEditPopup') addEditPopup!: PopUpComponent;
@@ -46,9 +45,9 @@ export class TaskManagementPageComponent {
       showCustom: true,
       customType: CustomType.IMAGE,
     },
-    { 
-      label: "TASK.DESCRIPTION", 
-      property: "description" 
+    {
+      label: "TASK.DESCRIPTION",
+      property: "description"
     },
     {
       label: "",
@@ -115,12 +114,12 @@ export class TaskManagementPageComponent {
 
   handleTaskAction(columnIndex: number, dataId: number): void {
     const DELETION_COLUMN_NUMBER = 4;
-    const EDIT_COLUMN_INDEX = 3;
+    const EDIT_COLUMN_NUMBER = 3;
 
     if (columnIndex === DELETION_COLUMN_NUMBER) {
       this.taskIdToDelete = dataId;
       this.deleteTaskPopup.open();
-    } else if (columnIndex === EDIT_COLUMN_INDEX) {
+    } else if (columnIndex === EDIT_COLUMN_NUMBER) {
       this.openEditPopup(true, dataId);
     }
   }
@@ -147,7 +146,6 @@ export class TaskManagementPageComponent {
 
   openEditPopup(isEditMode = false, taskId?: number) {
     this.isEditMode = isEditMode;
-    this.title = this.isEditMode ? 'TASK.EDIT_TASK' : 'TASK.ADD_TASK_NEW';
     if (isEditMode && taskId != null) {
       this.currentTaskId = taskId;
       const taskToEdit = this.tasks.find(task => task.id === taskId);
@@ -164,10 +162,9 @@ export class TaskManagementPageComponent {
     }
     this.addEditPopup.open();
   }
-  
+
   openAddPopup() {
     this.isEditMode = false;
-    this.title = this.isEditMode ? 'TASK.EDIT_TASK' : 'TASK.ADD_TASK_NEW';
     this.addEditPopup.open();
   }
 
@@ -175,9 +172,13 @@ export class TaskManagementPageComponent {
     this.taskForm.get('status')?.setValue(value);
   }
 
-  saveTask() { 
+  getMaxTaskId(): number {
+    return this.tasks.length > 0 ? Math.max(...this.tasks.map(task => task.id)) : 0;
+  }
+
+  saveTask() {
     if (this.taskForm.valid) {
-      if (this.isEditMode && this.currentTaskId !== undefined) { 
+      if (this.isEditMode && this.currentTaskId !== undefined) {
         const taskIndex = this.tasks.findIndex(t => t.id === this.currentTaskId);
         if (taskIndex > -1) {
           this.tasks[taskIndex] = {
@@ -187,9 +188,8 @@ export class TaskManagementPageComponent {
           };
         }
       } else {
-        const maxId = this.tasks.length > 0 ? Math.max(...this.tasks.map(task => task.id)) : 0;
         const newTask: Task = {
-          id: maxId + 1,
+          id: this.getMaxTaskId() + 1,
           status: this.taskForm.get('status')?.value,
           description: this.taskForm.get('description')?.value
         };
@@ -201,8 +201,8 @@ export class TaskManagementPageComponent {
 
   resetForm(form: FormGroup, formDirective: FormGroupDirective) {
     this.dropdownComponent.resetDropdown();
-      formDirective.resetForm();
-      form.reset();
+    formDirective.resetForm();
+    form.reset();
   }
 
 }
