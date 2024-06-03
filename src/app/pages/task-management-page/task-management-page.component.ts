@@ -159,10 +159,8 @@ export class TaskManagementPageComponent {
 
   resetForm(form: FormGroup, formDirective: FormGroupDirective) {
     this.dropdownComponent.resetDropdown();
-    setTimeout(() => {
       formDirective.resetForm();
       form.reset();
-  }, 0);
   }
 
 }
