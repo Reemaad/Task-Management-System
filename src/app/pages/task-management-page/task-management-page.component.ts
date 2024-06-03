@@ -3,7 +3,7 @@ import { ButtonComponent } from "../../components/button/button.component";
 import { TableComponent } from "../../components/table/table.component";
 import { TranslateModule } from "@ngx-translate/core";
 import { ButtonType } from "../../enums/button-type";
-import { Tasks } from "../../models/tasks";
+import { Task } from "../../models/task";
 import { CustomType } from "../../enums/custom-type";
 import { Column } from "../../models/column-data";
 import { PopUpComponent } from "../../components/pop-up/pop-up.component";
@@ -35,7 +35,7 @@ export class TaskManagementPageComponent {
   @ViewChild(FormGroupDirective) formGroupDirective!: FormGroupDirective;
     @ViewChild(DropdownComponent) dropdownComponent!: DropdownComponent;
 
-  columns: Column<Tasks>[] = [
+  columns: Column<Task>[] = [
     { label: "TASK.ID", property: "id" },
     {
       label: "TASK.STATUS",
@@ -62,7 +62,7 @@ export class TaskManagementPageComponent {
     },
   ];
 
-  tasks: Tasks[] = [
+  tasks: Task[] = [
     {
       id: 1,
       status: "/assets/images/png/notStarted.png",
