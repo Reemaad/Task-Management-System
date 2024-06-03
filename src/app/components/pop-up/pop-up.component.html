@@ -3,7 +3,7 @@
         <div class="popup-header">
             <span class="popup-title">
                 @if(title){
-                {{ title }}
+                {{ title | translate}}
                 }
             </span>
             <i class="bi bi-x-lg close-icon" (click)="close()"></i>

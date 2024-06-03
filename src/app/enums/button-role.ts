@@ -1,4 +1,4 @@
-export enum ButtonRole{
+export enum ButtonRole {
     submit,
     button
 }

@@ -5,7 +5,8 @@
     "LOGOUT": "تسجيل الخروج",
     "WEBSITE_NAME": "منصة إدارة المهام",
     "YES": "نعم",
-    "NO": "لا"
+    "NO": "لا",
+    "ADD": "إضافة"
   },
   "USER": {
     "NAME": "الاسم",
@@ -27,7 +28,16 @@
     "DESCRIPTION": "وصف المهمة",
     "DESCRIPTION_DATA": "مراجعة ملفات التصميم",
     "ADD_TASK": "اضافة مهمة",
-    "TASK_MANAGEMENT": "إدارة المهام"
+    "TASK_MANAGEMENT": "إدارة المهام",
+    "ADD_TASK_NEW": "إضافة مهمة جديدة",
+    "STATUSES":{
+      "COMPLETED": "اكتملت",
+      "IN_PROGRESS": "قيد الإجراء",
+      "NOT_STARTED": "لم تبدأ بعد"
+    }
+  },
+  "DROPDOWN": {
+    "PLACEHOLDER": "اختر"
   },
   "MESSAGE": {
     "DELETION_CONFIRMATION": "هل انت متأكد انك تريد حذف المهمة؟",

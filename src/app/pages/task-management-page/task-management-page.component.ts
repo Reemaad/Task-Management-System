@@ -7,18 +7,33 @@ import { Tasks } from "../../models/tasks";
 import { CustomType } from "../../enums/custom-type";
 import { Column } from "../../models/column-data";
 import { PopUpComponent } from "../../components/pop-up/pop-up.component";
+import { DropdownItem } from "../../models/dropdown-item";
+import { FormControl, FormGroup, FormGroupDirective, NgForm, ReactiveFormsModule, Validators } from "@angular/forms";
+import { ErrorMessage } from "../../models/error-message";
+import { InputValidator } from "../../enums/input-validator";
+import { DropdownComponent } from "../../components/dropdown/dropdown.component";
+import { InputType } from "../../enums/input-type";
+import { InputComponent } from "../../components/input/input.component";
+import { ButtonRole } from "../../enums/button-role";
 
 @Component({
   selector: "task-management-page",
   standalone: true,
-  imports: [ButtonComponent, TableComponent, TranslateModule, PopUpComponent],
   templateUrl: "./task-management-page.component.html",
   styleUrl: "./task-management-page.component.css",
+  imports: [ButtonComponent, TableComponent, TranslateModule, PopUpComponent, DropdownComponent, InputComponent, ReactiveFormsModule]
 })
 export class TaskManagementPageComponent {
+  taskForm!: FormGroup;
+  InputType = InputType;
   ButtonType = ButtonType;
-  @ViewChild(PopUpComponent) deleteTaskPopup!: PopUpComponent;
+  ButtonRole = ButtonRole;
   taskIdToDelete!: number | null;
+
+  @ViewChild('deleteTaskPopup') deleteTaskPopup!: PopUpComponent;
+  @ViewChild('addEditPopup') addEditPopup!: PopUpComponent;
+  @ViewChild(FormGroupDirective) formGroupDirective!: FormGroupDirective;
+    @ViewChild(DropdownComponent) dropdownComponent!: DropdownComponent;
 
   columns: Column<Tasks>[] = [
     { label: "TASK.ID", property: "id" },
@@ -50,7 +65,7 @@ export class TaskManagementPageComponent {
   tasks: Tasks[] = [
     {
       id: 1,
-      status: "/assets/images/png/pending.png",
+      status: "/assets/images/png/notStarted.png",
       description: "TASK.DESCRIPTION_DATA",
     },
     {
@@ -69,6 +84,28 @@ export class TaskManagementPageComponent {
       description: "TASK.DESCRIPTION_DATA",
     },
   ];
+
+  statusList: DropdownItem[] = [
+    { value: "/assets/images/png/completed.png", label: "TASK.STATUSES.COMPLETED" },
+    { value: "/assets/images/png/inProgress.png", label: "TASK.STATUSES.IN_PROGRESS" },
+    { value: "/assets/images/png/notStarted.png", label: "TASK.STATUSES.NOT_STARTED" },
+  ];
+
+  errorMessages: { [type: string]: ErrorMessage[] } = {
+    status: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }],
+    description: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }]
+  };
+
+  constructor() {
+    this.taskForm = new FormGroup({
+      status: new FormControl("", [
+        Validators.required,
+      ]),
+      description: new FormControl("", [
+        Validators.required,
+      ]),
+    });
+  }
 
   handleTaskAction(columnNo: number, dataId: number): void {
     const DELETION_COLUMN_NUMBER = 4;
@@ -94,7 +131,36 @@ export class TaskManagementPageComponent {
     }
   }
 
-  closePopup() {
+  closeDeletePopup() {
     this.deleteTaskPopup.close();
   }
+
+  openAddEditPopup() {
+    this.addEditPopup.open();
+  }
+
+  onSelectedItemChanged(value: string) {
+    this.taskForm.get('status')?.setValue(value);
+  }
+
+  addTask() {
+    if (this.taskForm.valid) {
+      const maxId = this.tasks.length > 0 ? Math.max(...this.tasks.map(task => task.id)) : 0;
+      const newTask: Tasks = {
+        id: maxId + 1,
+        status: this.taskForm.get('status')?.value,
+        description: this.taskForm.get('description')?.value
+      };
+      this.tasks.push(newTask);
+      this.addEditPopup.close();
+      this.resetForm(this.taskForm, this.formGroupDirective);
+    }
+  }
+
+  resetForm(form: FormGroup, formDirective: FormGroupDirective) {
+    this.dropdownComponent.resetDropdown();
+      formDirective.resetForm();
+      form.reset();
+  }
+
 }

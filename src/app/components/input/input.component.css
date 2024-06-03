@@ -12,6 +12,19 @@ input, textarea {
     height: 40px;
 }
 
+textarea {
+    height: 140px;
+    font-size: 16px;
+}
+
+.label{
+    display: flex;
+    flex-direction: row;
+}
+
+.required{
+    color: red;
+}
 .error-message {
     margin-right: 6px;
 }

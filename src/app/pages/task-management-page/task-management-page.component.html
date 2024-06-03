@@ -1,11 +1,11 @@
+<div class="task-page">
 <div class="task-manager-container">
         
     <div class="task-header-container">
 
         <div class="button-container">
-            <custom-button 
-            [type]="ButtonType.SECONDARY"> 
-            {{'TASK.ADD_TASK' | translate}} 
+            <custom-button [type]="ButtonType.SECONDARY" (click)="openAddEditPopup()">
+                {{'TASK.ADD_TASK' | translate}}
             </custom-button>
         </div>
 
@@ -19,7 +19,7 @@
         (action)="handleTaskAction($event[0],$event[1])">
         </custom-table>
             
-        <popup #deleteTaskPopup (close)="closePopup()">
+        <popup #deleteTaskPopup>
             <div class="delete-task-popup-container">
                 <span class="popup-message">{{'MESSAGE.DELETION_CONFIRMATION' | translate}}</span>
                 <div class="popup-buttons-container">
@@ -35,7 +35,7 @@
                     <div class="confirm-button">
                         <custom-button 
                         [type]="ButtonType.SECONDARY" 
-                        (click)="closePopup()">
+                        (click)="closeDeletePopup()">
                         {{'GENERAL.NO' | translate}}
                         </custom-button>
                     </div>
@@ -44,3 +44,43 @@
             </div>
         </popup>
 </div>
+</div>
+
+
+<popup #addEditPopup (closePopup)="resetForm(this.taskForm, this.form)" [title]= "'TASK.ADD_TASK_NEW'">
+    <div class="addEdit-popup-container">
+        <form #form="ngForm" [formGroup]="taskForm" class="popup-form" (ngSubmit)="addTask()">
+
+        <div class="dropdown-container">
+            <custom-dropdown
+            [generalFormGroup]="form"
+            [isRequired]="true"
+            [label]="'TASK.STATUS'"
+            [placeholder]="'DROPDOWN.PLACEHOLDER'"
+            [controlName]="'status'"
+            [items]="statusList"
+            [errorMessages]="errorMessages['status']"
+            (selectedItemChanged)="onSelectedItemChanged($event)"></custom-dropdown>
+        </div>
+
+            <div class="input-container">
+            <custom-input
+            [generalFormGroup]="form"
+            [isRequired]="true"
+            [label]="'TASK.DESCRIPTION'"
+            [type]="InputType.textarea"
+            [controlName]="'description'"
+            [id]="'description'"
+            [errorMessages]="errorMessages['description']">
+            </custom-input>
+            </div>
+
+            <div class="popup-button-container">
+                <custom-button [type]="ButtonType.PRIMARY" [role]="ButtonRole.submit">
+                {{'GENERAL.ADD' | translate}}
+                </custom-button>
+            </div>
+
+        </form>
+    </div>
+</popup>
