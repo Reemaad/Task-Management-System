@@ -1,7 +1,7 @@
 import { Component, ViewChild } from "@angular/core";
 import { ButtonComponent } from "../../components/button/button.component";
 import { TableComponent } from "../../components/table/table.component";
-import { TranslateModule, TranslateService } from "@ngx-translate/core";
+import { TranslateModule } from "@ngx-translate/core";
 import { ButtonType } from "../../enums/button-type";
 import { CustomType } from "../../enums/custom-type";
 import { Column } from "../../models/column-data";
@@ -71,22 +71,22 @@ export class TaskManagementPageComponent {
     {
       id: 1,
       status: "/assets/images/png/notStarted.png",
-      description: "TASK.DESCRIPTION_DATA",
+      description: "مراجعة ملفات التصميم"
     },
     {
       id: 2,
       status: "/assets/images/png/inProgress.png",
-      description: "TASK.DESCRIPTION_DATA",
+      description: "مراجعة ملفات التصميم"
     },
     {
       id: 3,
       status: "/assets/images/png/completed.png",
-      description: "TASK.DESCRIPTION_DATA",
+      description: "مراجعة ملفات التصميم"
     },
     {
       id: 4,
       status: "/assets/images/png/inProgress.png",
-      description: "TASK.DESCRIPTION_DATA",
+      description: "مراجعة ملفات التصميم"
     },
   ];
 
@@ -101,7 +101,7 @@ export class TaskManagementPageComponent {
     description: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }]
   };
 
-  constructor(private translateService: TranslateService) {
+  constructor() {
     this.taskForm = new FormGroup({
       status: new FormControl("", [
         Validators.required,
@@ -150,10 +150,9 @@ export class TaskManagementPageComponent {
       this.currentTaskId = taskId;
       const taskToEdit = this.tasks.find(task => task.id === taskId);
       if (taskToEdit) {
-        const translatedDescription = this.translateService.instant(taskToEdit.description);
         this.taskForm.patchValue({
           status: taskToEdit.status,
-          description: translatedDescription,
+          description: taskToEdit.description,
         });
         this.dropdownComponent.selectValue(taskToEdit.status);
       }

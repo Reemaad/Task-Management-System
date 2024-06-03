@@ -27,12 +27,11 @@
     "ID": "رقم المهمة",
     "STATUS": "حالة المهمة",
     "DESCRIPTION": "وصف المهمة",
-    "DESCRIPTION_DATA": "مراجعة ملفات التصميم",
     "ADD_TASK": "اضافة مهمة",
     "TASK_MANAGEMENT": "إدارة المهام",
     "ADD_TASK_NEW": "إضافة مهمة جديدة",
     "EDIT_TASK": "تعديل المهمة",
-    "STATUSES":{
+    "STATUSES": {
       "COMPLETED": "اكتملت",
       "IN_PROGRESS": "قيد الإجراء",
       "NOT_STARTED": "لم تبدأ بعد"
