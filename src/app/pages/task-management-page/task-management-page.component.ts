@@ -1,7 +1,7 @@
 import { Component, ViewChild } from "@angular/core";
 import { ButtonComponent } from "../../components/button/button.component";
 import { TableComponent } from "../../components/table/table.component";
-import { TranslateModule } from "@ngx-translate/core";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { ButtonType } from "../../enums/button-type";
 import { CustomType } from "../../enums/custom-type";
 import { Column } from "../../models/column-data";
@@ -101,7 +101,7 @@ export class TaskManagementPageComponent {
     description: [{ validator: InputValidator.required, message: "ERROR_MESSAGE.REQUIRED" }]
   };
 
-  constructor() {
+  constructor(private translateService: TranslateService) {
     this.taskForm = new FormGroup({
       status: new FormControl("", [
         Validators.required,
@@ -151,15 +151,16 @@ export class TaskManagementPageComponent {
       this.currentTaskId = taskId;
       const taskToEdit = this.tasks.find(task => task.id === taskId);
       if (taskToEdit) {
-        this.taskForm.setValue({
+        const translatedDescription = this.translateService.instant(taskToEdit.description);
+        this.taskForm.patchValue({
           status: taskToEdit.status,
-          description: taskToEdit.description,
+          description: translatedDescription,
         });
+        this.dropdownComponent.selectValue(taskToEdit.status);
       }
     } else {
       this.currentTaskId = undefined;
     }
-    this.resetForm(this.taskForm, this.formGroupDirective);
     this.addEditPopup.open();
   }
   
@@ -175,7 +176,7 @@ export class TaskManagementPageComponent {
 
   saveTask() { 
     if (this.taskForm.valid) {
-      if (this.isEditMode && this.currentTaskId !== undefined) { // edit task
+      if (this.isEditMode && this.currentTaskId !== undefined) { 
         const taskIndex = this.tasks.findIndex(t => t.id === this.currentTaskId);
         if (taskIndex > -1) {
           this.tasks[taskIndex] = {
@@ -186,7 +187,7 @@ export class TaskManagementPageComponent {
         }
       } else {
         const maxId = this.tasks.length > 0 ? Math.max(...this.tasks.map(task => task.id)) : 0;
-        const newTask: Tasks = { // add new task
+        const newTask: Tasks = {
           id: maxId + 1,
           status: this.taskForm.get('status')?.value,
           description: this.taskForm.get('description')?.value

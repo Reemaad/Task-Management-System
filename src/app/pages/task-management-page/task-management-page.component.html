@@ -69,17 +69,17 @@
             </custom-dropdown>
         </div>
 
-            <div class="input-container">
-                <custom-input
-                [generalFormGroup]="form"
-                [isRequired]="true"
-                [label]="'TASK.DESCRIPTION'"
-                [type]="InputType.textarea"
-                [controlName]="'description'"
-                [id]="'description'"
-                [errorMessages]="errorMessages['description']">
-                </custom-input>
-            </div>
+        <div class="input-container">
+            <custom-input
+            [generalFormGroup]="form"
+            [isRequired]="true"
+            [label]="'TASK.DESCRIPTION'"
+            [type]="InputType.textarea"
+            [controlName]="'description'"
+            [id]="'description'"
+            [errorMessages]="errorMessages['description']">
+            </custom-input>
+        </div>
 
             <div class="popup-button-container">
                 <custom-button [type]="ButtonType.PRIMARY" [role]="ButtonRole.submit">
