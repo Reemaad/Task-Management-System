@@ -145,10 +145,8 @@ export class TaskManagementPageComponent {
   }
 
   openEditPopup(isEditMode = false, taskId?: number) {
-    this.resetForm(this.taskForm, this.formGroupDirective);
     this.isEditMode = isEditMode;
     this.title = this.isEditMode ? 'TASK.EDIT_TASK' : 'TASK.ADD_TASK_NEW';
-
     if (isEditMode && taskId != null) {
       this.currentTaskId = taskId;
       const taskToEdit = this.tasks.find(task => task.id === taskId);
@@ -161,6 +159,7 @@ export class TaskManagementPageComponent {
     } else {
       this.currentTaskId = undefined;
     }
+    this.resetForm(this.taskForm, this.formGroupDirective);
     this.addEditPopup.open();
   }
   
