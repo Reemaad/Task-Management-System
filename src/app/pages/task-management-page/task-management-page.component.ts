@@ -145,9 +145,10 @@ export class TaskManagementPageComponent {
   }
 
   openEditPopup(isEditMode = false, taskId?: number) {
+    this.resetForm(this.taskForm, this.formGroupDirective);
     this.isEditMode = isEditMode;
     this.title = this.isEditMode ? 'TASK.EDIT_TASK' : 'TASK.ADD_TASK_NEW';
-    this.resetForm(this.taskForm, this.formGroupDirective);
+
     if (isEditMode && taskId != null) {
       this.currentTaskId = taskId;
       const taskToEdit = this.tasks.find(task => task.id === taskId);
@@ -181,7 +182,7 @@ export class TaskManagementPageComponent {
           this.tasks[taskIndex] = {
             id: this.currentTaskId,
             status: this.taskForm.get('status')?.value,
-            description: this.taskForm.value.description,
+            description: this.taskForm.get('description')?.value
           };
         }
       } else {
@@ -189,13 +190,11 @@ export class TaskManagementPageComponent {
         const newTask: Tasks = { // add new task
           id: maxId + 1,
           status: this.taskForm.get('status')?.value,
-          description: this.taskForm.get('description,')?.value
+          description: this.taskForm.get('description')?.value
         };
         this.tasks.push(newTask);
       }
-      
       this.addEditPopup.close();
-      this.resetForm(this.taskForm, this.formGroupDirective);
     }
   }
 
