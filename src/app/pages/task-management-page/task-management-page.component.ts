@@ -14,6 +14,7 @@ import { DropdownComponent } from "../../components/dropdown/dropdown.component"
 import { InputType } from "../../enums/input-type";
 import { InputComponent } from "../../components/input/input.component";
 import { ButtonRole } from "../../enums/button-role";
+import { Task } from "../../models/task";
 
 @Component({
   selector: "task-management-page",
@@ -187,7 +188,7 @@ export class TaskManagementPageComponent {
         }
       } else {
         const maxId = this.tasks.length > 0 ? Math.max(...this.tasks.map(task => task.id)) : 0;
-        const newTask: Tasks = {
+        const newTask: Task = {
           id: maxId + 1,
           status: this.taskForm.get('status')?.value,
           description: this.taskForm.get('description')?.value

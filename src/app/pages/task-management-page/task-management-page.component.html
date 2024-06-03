@@ -4,19 +4,13 @@
         <div class="task-header-container">
 
             <div class="button-container">
-                <custom-button [type]="ButtonType.SECONDARY" (click)="openAddEditPopup()">
-                    {{'TASK.ADD_TASK' | translate}}
+                <custom-button [type]="ButtonType.SECONDARY" (click)="openAddPopup()">
+                {{'TASK.ADD_TASK' | translate}}
                 </custom-button>
             </div>
-
+            
             <span class="title">{{'TASK.TASK_MANAGEMENT' | translate}}</span>
-
-        <div class="button-container">
-            <custom-button [type]="ButtonType.SECONDARY" (click)="openAddPopup()">
-                {{'TASK.ADD_TASK' | translate}}
-            </custom-button>
         </div>
-
             <custom-table 
             [data]="tasks" 
             [columns]="columns"
