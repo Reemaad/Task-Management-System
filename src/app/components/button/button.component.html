@@ -1,6 +1,11 @@
-<button 
-[ngClass]="{'primary-btn': type === ButtonType.PRIMARY ,'secondary-btn': type === ButtonType.SECONDARY}"
-[type]="ButtonRole[type]"
-(click)="emitEvent()">
-    <ng-content></ng-content>
+<button
+  [ngClass]="{
+    'bg-primary text-white border-none': type === ButtonType.PRIMARY,
+    'bg-transparent text-primary border-2 border-primary': type === ButtonType.SECONDARY,
+    'rounded-lg w-full h-11 text-lg cursor-pointer': true
+  }"
+  [type]="ButtonRole[type]"
+  (click)="emitEvent()"
+>
+  <ng-content></ng-content>
 </button>
