@@ -63,6 +63,25 @@
     width: 220px;
 }
 
+.addEdit-popup-container {
+    display: flex;
+    padding-block: 18px;
+}
+
+.popup-form {
+    width: 100%;
+    height: 100%;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 35px;
+}
+
+.dropdown-container {
+    width: 220px;
+}
+
 .input-container {
     height: 200px;
     width: 490px;

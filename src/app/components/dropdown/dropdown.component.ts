@@ -39,6 +39,10 @@ export class DropdownComponent {
     );
   }
 
+  selectValue(value: string) {
+    this.dropdown.nativeElement.value = value;
+  }  
+
   resetDropdown() {
     this.dropdown.nativeElement.value = "-1";
   }

@@ -3,18 +3,18 @@ import { ButtonComponent } from "../../components/button/button.component";
 import { TableComponent } from "../../components/table/table.component";
 import { TranslateModule } from "@ngx-translate/core";
 import { ButtonType } from "../../enums/button-type";
-import { Task } from "../../models/task";
 import { CustomType } from "../../enums/custom-type";
 import { Column } from "../../models/column-data";
 import { PopUpComponent } from "../../components/pop-up/pop-up.component";
 import { DropdownItem } from "../../models/dropdown-item";
-import { FormControl, FormGroup, FormGroupDirective, NgForm, ReactiveFormsModule, Validators } from "@angular/forms";
+import { FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule, Validators } from "@angular/forms";
 import { ErrorMessage } from "../../models/error-message";
 import { InputValidator } from "../../enums/input-validator";
 import { DropdownComponent } from "../../components/dropdown/dropdown.component";
 import { InputType } from "../../enums/input-type";
 import { InputComponent } from "../../components/input/input.component";
 import { ButtonRole } from "../../enums/button-role";
+import { Task } from "../../models/task";
 
 @Component({
   selector: "task-management-page",
@@ -29,11 +29,13 @@ export class TaskManagementPageComponent {
   ButtonType = ButtonType;
   ButtonRole = ButtonRole;
   taskIdToDelete!: number | null;
+  isEditMode = false;
+  currentTaskId?: number;
 
   @ViewChild('deleteTaskPopup') deleteTaskPopup!: PopUpComponent;
   @ViewChild('addEditPopup') addEditPopup!: PopUpComponent;
   @ViewChild(FormGroupDirective) formGroupDirective!: FormGroupDirective;
-    @ViewChild(DropdownComponent) dropdownComponent!: DropdownComponent;
+  @ViewChild(DropdownComponent) dropdownComponent!: DropdownComponent;
 
   columns: Column<Task>[] = [
     { label: "TASK.ID", property: "id" },
@@ -43,7 +45,10 @@ export class TaskManagementPageComponent {
       showCustom: true,
       customType: CustomType.IMAGE,
     },
-    { label: "TASK.DESCRIPTION", property: "description" },
+    {
+      label: "TASK.DESCRIPTION",
+      property: "description"
+    },
     {
       label: "",
       property: "id",
@@ -66,22 +71,22 @@ export class TaskManagementPageComponent {
     {
       id: 1,
       status: "/assets/images/png/notStarted.png",
-      description: "TASK.DESCRIPTION_DATA",
+      description: "مراجعة ملفات التصميم"
     },
     {
       id: 2,
       status: "/assets/images/png/inProgress.png",
-      description: "TASK.DESCRIPTION_DATA",
+      description: "مراجعة ملفات التصميم"
     },
     {
       id: 3,
       status: "/assets/images/png/completed.png",
-      description: "TASK.DESCRIPTION_DATA",
+      description: "مراجعة ملفات التصميم"
     },
     {
       id: 4,
       status: "/assets/images/png/inProgress.png",
-      description: "TASK.DESCRIPTION_DATA",
+      description: "مراجعة ملفات التصميم"
     },
   ];
 
@@ -107,11 +112,15 @@ export class TaskManagementPageComponent {
     });
   }
 
-  handleTaskAction(columnNo: number, dataId: number): void {
+  handleTaskAction(columnIndex: number, dataId: number): void {
     const DELETION_COLUMN_NUMBER = 4;
-    if (columnNo === DELETION_COLUMN_NUMBER) {
+    const EDIT_COLUMN_NUMBER = 3;
+
+    if (columnIndex === DELETION_COLUMN_NUMBER) {
       this.taskIdToDelete = dataId;
       this.deleteTaskPopup.open();
+    } else if (columnIndex === EDIT_COLUMN_NUMBER) {
+      this.openEditPopup(true, dataId);
     }
   }
 
@@ -135,7 +144,26 @@ export class TaskManagementPageComponent {
     this.deleteTaskPopup.close();
   }
 
-  openAddEditPopup() {
+  openEditPopup(isEditMode = false, taskId?: number) {
+    this.isEditMode = isEditMode;
+    if (isEditMode && taskId != null) {
+      this.currentTaskId = taskId;
+      const taskToEdit = this.tasks.find(task => task.id === taskId);
+      if (taskToEdit) {
+        this.taskForm.patchValue({
+          status: taskToEdit.status,
+          description: taskToEdit.description,
+        });
+        this.dropdownComponent.selectValue(taskToEdit.status);
+      }
+    } else {
+      this.currentTaskId = undefined;
+    }
+    this.addEditPopup.open();
+  }
+
+  openAddPopup() {
+    this.isEditMode = false;
     this.addEditPopup.open();
   }
 
@@ -143,24 +171,37 @@ export class TaskManagementPageComponent {
     this.taskForm.get('status')?.setValue(value);
   }
 
-  addTask() {
+  getMaxTaskId(): number {
+    return this.tasks.length > 0 ? Math.max(...this.tasks.map(task => task.id)) : 0;
+  }
+
+  saveTask() {
     if (this.taskForm.valid) {
-      const maxId = this.tasks.length > 0 ? Math.max(...this.tasks.map(task => task.id)) : 0;
-      const newTask: Task = {
-        id: maxId + 1,
-        status: this.taskForm.get('status')?.value,
-        description: this.taskForm.get('description')?.value
-      };
-      this.tasks.push(newTask);
+      if (this.isEditMode && this.currentTaskId !== undefined) {
+        const taskIndex = this.tasks.findIndex(t => t.id === this.currentTaskId);
+        if (taskIndex > -1) {
+          this.tasks[taskIndex] = {
+            id: this.currentTaskId,
+            status: this.taskForm.get('status')?.value,
+            description: this.taskForm.get('description')?.value
+          };
+        }
+      } else {
+        const newTask: Task = {
+          id: this.getMaxTaskId() + 1,
+          status: this.taskForm.get('status')?.value,
+          description: this.taskForm.get('description')?.value
+        };
+        this.tasks.push(newTask);
+      }
       this.addEditPopup.close();
-      this.resetForm(this.taskForm, this.formGroupDirective);
     }
   }
 
   resetForm(form: FormGroup, formDirective: FormGroupDirective) {
     this.dropdownComponent.resetDropdown();
-      formDirective.resetForm();
-      form.reset();
+    formDirective.resetForm();
+    form.reset();
   }
 
 }
