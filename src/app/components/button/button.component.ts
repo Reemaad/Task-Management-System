@@ -9,8 +9,8 @@ import { ButtonRole } from "../../enums/button-role";
   standalone: true,
   imports: [CommonModule],
   templateUrl: "./button.component.html",
-  styleUrl: "./button.component.css",
 })
+
 export class ButtonComponent {
   @Input() type: ButtonType = ButtonType.PRIMARY;
   @Input() role: ButtonRole = ButtonRole.button;
