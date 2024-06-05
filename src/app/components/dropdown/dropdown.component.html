@@ -1,16 +1,18 @@
-<div [formGroup]="generalFormGroup.form">
-    <div class="label">
+<div [formGroup]="generalFormGroup.form" class="rtl flex flex-col text-base gap-1.5">
+    <div class="flex flex-row">
         <span>{{ label | translate }}</span>
 
         @if (isRequired) {
-        <span class="required"> * </span>
+        <span class="text-red-500"> * </span>
         }
     </div>
-    <div class="select-container">
+    <div class="inline-block">
         <select 
         #dropdown 
         title="dropdown" 
-        (change)="onSelect(dropdown.value)">
+        (change)="onSelect(dropdown.value)"
+        class= "border border-gray-300 rounded-lg w-full h-10 pr-3 text-gray-500 appearance-none cursor-pointer bg-custom-arrow bg-no-repeat bg-5-50 bg-15px"
+        >
 
             <option
             disabled
