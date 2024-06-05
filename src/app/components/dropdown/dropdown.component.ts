@@ -10,7 +10,6 @@ import { ErrorMessageComponent } from "../error-message/error-message.component"
     selector: "custom-dropdown",
     standalone: true,
     templateUrl: "./dropdown.component.html",
-    styleUrl: "./dropdown.component.css",
     imports: [ TranslateModule, ErrorMessageComponent, ReactiveFormsModule]
 })
 export class DropdownComponent {
